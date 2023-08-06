@@ -12,17 +12,17 @@ exports.createCourse = async (req, res) => {
       courseDescription,
       whatYouWillLearn,
       price,
-      // tag,
+      tag,
       category,
     } = req.body;
-    // const thumbnail = req.files.thumbnailImage;
+    const thumbnail = req.files.thumbnailImage;
 
     if (
       !courseName ||
       !courseDescription ||
       !whatYouWillLearn ||
       !price ||
-      // !tag ||
+      !tag ||
       !category
     ) {
       return res.status(400).json({
@@ -52,12 +52,12 @@ exports.createCourse = async (req, res) => {
       });
     }
 
-    //upload image
+    // upload image
 
-    // const thumbnailImage = await uploadImageToCloudinary(
-    //   thumbnail,
-    //   process.env.FOLDER_NAME
-    // );
+    const thumbnailImage = await uploadImageToCloudinary(
+      thumbnail,
+      process.env.FOLDER_NAME
+    );
 
     const newCourse = await Course.create({
       courseName,
@@ -65,9 +65,9 @@ exports.createCourse = async (req, res) => {
       instructor: instructorDetails._id,
       whatYouWillLearn,
       price,
-      // tag: tag,
+      tag: tag,
       category: categoryDetails._id,
-      // thumbnail: thumbnailImage.secure_url,
+      thumbnail: thumbnailImage.secure_url,
     });
 
     //add the new course to the user schema of instructor

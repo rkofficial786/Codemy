@@ -29,7 +29,7 @@ export default function CourseBuilderForm() {
   const { course } = useSelector((state) => state.course)
   const { token } = useSelector((state) => state.auth)
   const [loading, setLoading] = useState(false)
-  const [editSectionName, setEditSectionName] = useState(null)
+  const [editSectionName, setEditSectionName] = useState(false)
   const dispatch = useDispatch()
 
   // handle form submission
@@ -57,12 +57,15 @@ export default function CourseBuilderForm() {
         },
         token
       )
+     
+      
     }
     if (result) {
-      // console.log("section result", result)
+      console.log("section result", result)
       dispatch(setCourse(result))
       setEditSectionName(null)
       setValue("sectionName", "")
+      
     }
     setLoading(false)
   }
@@ -141,9 +144,11 @@ export default function CourseBuilderForm() {
           )}
         </div>
       </form>
+     
       {course.courseContent.length > 0 && (
         <NestedView handleChangeEditSectionName={handleChangeEditSectionName} />
       )}
+     
       {/* Next Prev Button */}
       <div className="flex justify-end gap-x-3">
         <button
@@ -152,7 +157,7 @@ export default function CourseBuilderForm() {
         >
           Back
         </button>
-        <BtnIcon disabled={loading} text="Next" onClick={goToNext}>
+        <BtnIcon disabled={loading} text="Next" onclick={goToNext}>
           <MdNavigateNext />
         </BtnIcon>
       </div>

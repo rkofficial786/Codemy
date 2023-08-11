@@ -7,8 +7,8 @@ const Dashboard = () => {
     <div className="text-white">
       <div className="flex text-white relative min-h-[calc(100vh-3.5rem)]">
         <SideBar />
-        <div className="h-[calc(100vh-3.5 rem)] w-full overflow-auto ">
-          <div className="mx-auto  flex items-center justify-center   py-10">
+        <div className="h-[calc(100vh-3.5 rem)] w-full  overflow-auto ">
+          <div className=" lg:w-[calc(100vw-250px)] ml-auto flex items-center justify-center  py-10">
             <Outlet />
           </div>
         </div>

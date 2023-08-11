@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo/Logo-Full-Light.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import { NavbarLinks } from "./../../data/navbar-links";
 import { useSelector } from "react-redux";
@@ -30,7 +30,7 @@ const Navbar = () => {
   useEffect(() => {
     fetchSublinks();
   }, []);
-
+  const navigate = useNavigate();
   return (
     <div className="h-16 flex items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
@@ -52,17 +52,29 @@ const Navbar = () => {
                         {link.title}
                         <IoIosArrowDown />
                       </p>
-                      <div className="invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]">
+                      <div className="invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[250px]">
                         <div className="absolute  left-[50%] top-0 translate-x-[80%] translate-y-[-45%] h-6 w-6 rotate-45 rounded bg-richblack-5 "></div>
 
                         {subLinks &&
                           subLinks.map((category, index) => {
-                            return <div>{category.name}</div>;
+                            return (
+                              <div
+                                className="hover:bg-richblack-300 rounded-xl px-2 py-[2px] text-[20px]"
+                                onClick={() => {
+                                  navigate(`/catalog/${category.name}`);
+                                }}
+                              >
+                                {category.name}
+                              </div>
+                            );
                           })}
                       </div>
                     </div>
                   ) : (
-                    <NavLink className={"text-richblack-200 hover:text-richblack-5"} to={link?.path}>
+                    <NavLink
+                      className={"text-richblack-200 hover:text-richblack-5"}
+                      to={link?.path}
+                    >
                       {link.title}
                     </NavLink>
                   )}

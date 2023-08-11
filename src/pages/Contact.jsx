@@ -21,6 +21,8 @@ const Contact = () => {
           <p className="text-richblack-300">excelshopping0@gmail.com</p>
         </div>
 
+        
+
         {/* 2nd */}
         <div>
           <div className="flex items-center gap-5">

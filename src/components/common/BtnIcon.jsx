@@ -1,26 +1,33 @@
 import React from "react";
 import * as Icons from "react-icons/vsc"
 
-const BtnIcon = ({ text, onClick, disabled, type,iconName }) => {
+const BtnIcon = ({  text,
+  onClick,
+  children,
+  disabled,
+  outline = false,
+  customClasses,
+  type,}) => {
 
-  const Icon = Icons[iconName]
+ 
   return (
-    <div>
-      <button
-        onClick={onClick}
-        type={type}
-        className={`${
-          disabled === true
-            ? "bg-richblack-600 text-white"
-            : "bg-yellow-100 text-richblack-800"
-        } hover:shadow-lg hover:border-opacity-50 py-1 px-[12px] flex items-center gap-1 hover:scale-95 transition-all duration-200 rounded-lg shadow-md shadow-yellow-500 text-[17px]`}
-      >
-        {Icon && <Icon className="text-lg" />}
-        {text}
-      </button>
-      
-      
-    </div>
+    <button
+      disabled={disabled}
+      onClick={onClick}
+      className={`flex items-center ${
+        outline ? "border border-yellow-50 bg-transparent" : "bg-yellow-50"
+      } cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-richblack-900 ${customClasses}`}
+      type={type}
+    >
+      {children ? (
+        <>
+          <span className={`${outline && "text-yellow-50"}`}>{text}</span>
+          {children}
+        </>
+      ) : (
+        text
+      )}
+    </button>
   );
 };
 

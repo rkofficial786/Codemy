@@ -160,7 +160,7 @@ export default function CourseInformationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className=" rounded-md border-[1px] w-[600px] gap-4 flex flex-col border-richblack-700 bg-richblack-800 p-6"
+      className=" rounded-md border-[1px] lg:w-[600px] gap-4 flex flex-col border-richblack-700 bg-richblack-800 p-6"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">

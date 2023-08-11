@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema({
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "user",
+    ref: "User",
   },
   whatYouWillLearn: {
     type: String,
@@ -43,7 +43,7 @@ const courseSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "user",
+      ref: "User",
     },
   ],
   instructions: {
@@ -52,6 +52,7 @@ const courseSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["Draft", "Published"],
+    default:"Draft"
   },
   createdAt: { type: Date, default: Date.now },
 })

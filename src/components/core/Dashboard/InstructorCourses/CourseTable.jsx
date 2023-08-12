@@ -13,6 +13,7 @@ import { setCourse } from "../../../../slices/courseSlice";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import Formateprice from "../../../common/Formateprice";
 
 const CourseTable = ({ courses, setCourses }) => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ const CourseTable = ({ courses, setCourses }) => {
                     <div className="overflow-hidden">
                       <p className="w-[200px]">{course.courseName}</p>
                       <p className="text-richblack-300 w-[260px]">{course.courseDescription.substring(0,60)}</p>
-                      <p>Created: {course.createdAt}</p>
+                      <p className="text-richblack-500">Created: {course.createdAt.substring(0,10)}</p>
                       {course.status === COURSE_STATUS.DRAFT ? (
                         <p className="text-pink-500">Drafted</p>
                       ) : (
@@ -77,7 +78,7 @@ const CourseTable = ({ courses, setCourses }) => {
                     </div>
                   </Td>
                   <Td>2 hr 30 min</Td>
-                  <Td className="text-caribbeangreen-50 text-[14px]">${course.price}</Td>
+                  <Td className="text-caribbeangreen-50 text-[14px]"><Formateprice price={course.price}/></Td>
                   <Td>
                     <button className="mr-[10px]" onClick={()=>{
                       navigate(`/dashboard/edit-course/${course._id}`)

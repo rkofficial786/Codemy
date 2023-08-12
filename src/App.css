@@ -17,6 +17,20 @@ html ,body{
  .navlink a.active{
     color: yellow;
  }
+ .tabCourse a.active{
+	color: yellow;
+	position: relative;
+
+ }
+ .tabCourse a.active:after{
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: yellow;
+	position: absolute;
+	bottom: -9px;
+	
+ }
 
 
  @keyframes gradient-animation {

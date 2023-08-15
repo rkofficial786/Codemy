@@ -1,9 +1,13 @@
 import { useSelector } from "react-redux";
 import RenderCartCourses from "./RenderCartCourses";
 import RendereTotalAmount from "./RendereTotalAmount";
+import { useEffect } from "react";
 
 export default function Cart() {
-  const { total, totalItems } = useSelector((state) => state.auth);
+  const { total, totalItems } = useSelector((state) => state.cart);
+
+ 
+ 
   return (
     <div>
       <h1>Your Cart</h1>

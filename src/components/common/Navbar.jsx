@@ -52,16 +52,16 @@ const Navbar = () => {
                         {link.title}
                         <IoIosArrowDown />
                       </p>
-                      <div className="invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[250px]">
+                      <div className="invisible absolute left-[50%] translate-x-[-50%] translate-y-[10%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]">
                         <div className="absolute  left-[50%] top-0 translate-x-[80%] translate-y-[-45%] h-6 w-6 rotate-45 rounded bg-richblack-5 "></div>
 
                         {subLinks &&
                           subLinks.map((category, index) => {
                             return (
                               <div
-                                className="hover:bg-richblack-300 rounded-xl px-2 py-[2px] text-[20px]"
+                                className="hover:bg-richblack-50 rounded-xl px-2 py-[2px] text-[20px]"
                                 onClick={() => {
-                                  navigate(`/catalog/${category.name}`);
+                                  navigate(`/catalog/${category.name.split(" ").join("-")}`);
                                 }}
                               >
                                 {category.name}

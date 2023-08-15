@@ -13,6 +13,7 @@ import Footer from "./../components/common/Footer";
 import CourseCard from "../components/core/Catalog/CourseCard";
 import CourseSlider from "../components/core/Catalog/CourseSlider";
 import HighLightText from "../components/core/HomePage/HighLightText";
+import banner from "../assets/Screenshot_13.png"
 
 function Catalog() {
   const { loading } = useSelector((state) => state.profile);
@@ -60,11 +61,17 @@ function Catalog() {
     return <Error />;
   }
 
-  console.log("catalog", catalogPageData);
+  const containerStyle = {
+    // minHeight: '100vh',
+    width: "100%",
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url(${banner})`,
+    backgroundPosition: `center`,
+    backgroundSize: "cover",
+  };
   return (
     <div className="text-white">
       {/* Hero Section */}
-      <div className=" box-content bg-richblack-800 w-full">
+      <div className=" box-content  w-full " style={containerStyle}>
         <div className=" flex w-9/12 mx-auto min-h-[260px]  flex-col justify-center gap-4  ">
           <p className="text-sm text-richblack-300">
             {`Home / Catalog / `}
@@ -102,7 +109,7 @@ function Catalog() {
       {/* Section 2 */}
       <div className="w-9/12 mx-auto mt-[40px] flex flex-col gap-6">
         <p className="text-4xl font-semibold"><HighLightText text={"Top Courses in"}/> <span className="text-yellow-25">{catalogPageData?.data?.differentCategory?.name}</span> </p>
-        <div>
+        <div className="">
           {" "}
           <CourseSlider
             courses={catalogPageData?.data?.differentCategory?.courses}

@@ -3,10 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactStars from "react-stars";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { removeFromCart } from "../../../../slices/cartSlice";
+import { useEffect } from "react";
 
 const RenderCartCourses = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  
+  useEffect(()=>{
+    console.log("Cart",cart);
+  },[])
   return (
     <div>
       {cart.map((course, index) => {

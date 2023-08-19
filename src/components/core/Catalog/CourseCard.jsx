@@ -20,11 +20,15 @@ const CourseCard = ({ course, Height }) => {
       <Link to={`/courses/${course._id}`}>
         <div>
           <div className="mb-5">
+            <div className="relative group overflow-hidden">
             <img
               src={course?.thumbnail}
               alt=""
-              className={`h-[200px] w-full rounded-xl object-cover`}
+              className={`h-[200px] w-full rounded-xl object-cover group-hover:scale-110 transition-all ease-in-out duration-700  `}
             />
+            <div className="bg-black h-[220px] w-full rounded-xl absolute top-0 bg-opacity-30 invisible group-hover:visible group-hover:scale-110 transition-all ease-in-out duration-200"></div>
+            </div>
+            
           </div>
 
           <div className="flex flex-col gap-1">

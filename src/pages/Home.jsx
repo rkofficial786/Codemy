@@ -11,6 +11,7 @@ import LearningLanguageSection from "../components/core/HomePage/LearningLanguag
 import InstructionSection from "../components/core/HomePage/InstructionSection";
 import TabSection from "../components/core/HomePage/TabSection";
 import Footer from "../components/common/Footer";
+import ReviewSlider from "../components/common/ReviewSlider";
 
 const Home = () => {
   return (
@@ -185,6 +186,8 @@ const Home = () => {
         <h2 className="text-center text-4xl text-white mt-[200px]">
           Review from Other Learners
         </h2>
+
+        <ReviewSlider/>
 
         <div>
           

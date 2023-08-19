@@ -38,7 +38,7 @@ const Navbar = () => {
           <img src={logo} alt="" className="" loading="lazy" />
         </Link>
 
-        <nav className="z-10 ">
+        <nav className=" z-10tha yaha z-10">
           <ul className="grid grid-cols-4  items-center gap-6 text-richblack-200 cursor-pointer">
             {NavbarLinks.map((link, index) => {
               return (

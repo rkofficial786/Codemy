@@ -375,6 +375,7 @@ export const createRating = async (data, token) => {
   const toastId = toast.loading("Loading...")
   let success = false
   try {
+    console.log("CREATE RATING API RESPONSE............")
     const response = await apiConnector("POST", CREATE_RATING_API, data, {
       Authorization: `Bearer ${token}`,
     })
@@ -387,7 +388,7 @@ export const createRating = async (data, token) => {
   } catch (error) {
     success = false
     console.log("CREATE RATING API ERROR............", error)
-    toast.error(error.message)
+    toast.error(error.response.data.message)
   }
   toast.dismiss(toastId)
   return success

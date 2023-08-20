@@ -116,7 +116,7 @@ exports.getAllRating = async (req, res) => {
       })
       .populate({
         path: "course",
-        select: "courseName",
+        select: "courseName thumbnail",
       })
       .exec();
 
@@ -145,7 +145,7 @@ exports.getAllRatingReview = async (req, res) => {
       })
       .populate({
         path: "course",
-        select: "courseName", //Specify the fields you want to populate from the "Course" model
+        select: "courseName thumbnail", //Specify the fields you want to populate from the "Course" model
       })
       .exec()
 

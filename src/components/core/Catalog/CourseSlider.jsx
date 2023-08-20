@@ -21,7 +21,7 @@ const CourseSlider = ({ courses }) => {
             // loop={true}
             autoplay={{
               delay: 1500,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
             pagination={{
               clickable: true,

@@ -19,7 +19,7 @@ const InstructionSection = () => {
           <HighLightText text={"Instructor"} />
         </div>
 
-        <p className="text-pure-greys-400">
+        <p className="text-pure-greys-25 md:text-black">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim ipsa
           excepturi recusandae minus debitis? Quidem eligendi recusandae
           temporibus similique magni, explicabo natus incidunt eum repellat

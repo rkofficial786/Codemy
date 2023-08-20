@@ -9,13 +9,22 @@ import Stats from "../components/core/About/Stats";
 import LearningGrid from "../components/core/About/LearningGrid";
 import ContactForm from "../components/core/About/ContactForm";
 import ContactUsForm from "../components/core/Contact/ContactUsForm";
-import Footer from './../components/common/Footer';
-
+import Footer from "./../components/common/Footer";
+import ReviewSlider from "../components/common/ReviewSlider";
+import banner from "../assets/Screenshot_13.png"
 const About = () => {
+  const containerStyle = {
+    // minHeight: '100vh',
+    width: "100%",
+    position: "relative",
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(${banner})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+  };
   return (
     <div className="text-richblack-5">
       {/* section 1 */}
-      <section className="bg-richblack-700">
+      <section className="bg-richblack-700 "  style={containerStyle}>
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
@@ -129,11 +138,13 @@ const About = () => {
       </section>
 
       {/* section 6 */}
-      <div>
-        <h1>Review from other Learners</h1>
+      <div className="my-[70px] flex flex-col gap-7">
+        <h1 className="text-4xl  text-center">Review from other Learners</h1>
+
+        <ReviewSlider />
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

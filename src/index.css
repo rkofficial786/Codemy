@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Set the scrollbar width and hide the track */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent; /* Hide the track background */
+    
+  }
+  
+  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+  
+  /* Style the scrollbar thumb when hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
+  /* Style the scrollbar thumb when active (dragged) */
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #777;
+  }
+  
+  /* Hide the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background-color: rgb(10, 10, 36);
+    width: 2px;
+   
+  }
+  
+  
+  .circle {
+    /* width: 50px;
+    height: 50px; */
+    
+    transition: all 0.3s ease-in-out; 
+
+    
+    animation: moveUpDown 0.3s infinite alternate;
+  }
+  
+  @keyframes moveUpDown {
+    0% {
+      top: -12px;
+    }
+    100% {
+      top: -10px;
+    }
+  }
+  
+  

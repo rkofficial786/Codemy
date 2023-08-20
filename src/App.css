@@ -6,6 +6,7 @@
 
 html ,body{
     overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 .box-shadow-top-30px-20px {

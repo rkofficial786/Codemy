@@ -49,7 +49,7 @@ const ReviewSlider = () => {
             freeMode={true}
             // loop={true}
             autoplay={{
-              delay: 1500,
+              delay: 2500,
               disableOnInteraction: false,
             }}
             pagination={{
@@ -58,11 +58,11 @@ const ReviewSlider = () => {
             navigation={true}
             modules={[FreeMode, Pagination, Autoplay, Navigation]}
             breakpoints={{
-              1900: { slidesPerView: 4 },
+              1900: { slidesPerView: 3 },
               900: { slidesPerView: 2 },
               1400: { slidesPerView: 3 },
             }}
-            className=" flex items-center justify-center"
+            className=" flex items-center justify-center  w-9/12 mx-auto"
           >
             {reviews?.map((review, index) => {
               return (

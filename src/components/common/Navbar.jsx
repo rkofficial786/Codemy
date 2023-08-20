@@ -9,6 +9,7 @@ import ProfileDropdown from "../core/Auth/ProfileDropdown";
 import { apiConnector } from "../../services/apiConnector";
 import { categories } from "../../services/apis";
 import { IoIosArrowDown } from "react-icons/io";
+import { BsCart3, BsFillCartFill } from "react-icons/bs";
 
 const Navbar = () => {
   const { token } = useSelector((state) => state.auth);
@@ -16,6 +17,8 @@ const Navbar = () => {
   const { totalItems } = useSelector((state) => state.cart);
 
   const [subLinks, setSubLinks] = useState([]);
+  const { cart } = useSelector((state) => state.cart);
+  const [hovering,setHovering] =useState(false)
 
   const fetchSublinks = async () => {
     try {
@@ -32,13 +35,13 @@ const Navbar = () => {
   }, []);
   const navigate = useNavigate();
   return (
-    <div className="h-16 flex items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
+    <div className="h-16 flex nav-bar items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link>
           <img src={logo} alt="" className="" loading="lazy" />
         </Link>
 
-        <nav className=" z-10tha yaha z-10">
+        <nav className=" ">
           <ul className="grid grid-cols-4  items-center gap-6 text-richblack-200 cursor-pointer">
             {NavbarLinks.map((link, index) => {
               return (
@@ -61,7 +64,11 @@ const Navbar = () => {
                               <div
                                 className="hover:bg-richblack-50 rounded-xl px-2 py-[2px] text-[20px]"
                                 onClick={() => {
-                                  navigate(`/catalog/${category.name.split(" ").join("-")}`);
+                                  navigate(
+                                    `/catalog/${category.name
+                                      .split(" ")
+                                      .join("-")}`
+                                  );
                                 }}
                               >
                                 {category.name}
@@ -87,12 +94,19 @@ const Navbar = () => {
         {/* login signup  */}
 
         <div className="flex gap-4 items-center">
-          {user && user?.accountType !== "Instructor" && (
-            <Link to={"/dashboard/cart"} className="relative">
-              <AiOutlineShoppingCart />
-              {totalItems > 0 && <span>{totalItems}</span>}
-            </Link>
-          )}
+          {user && user?.accountType !== "Instructor" && (cart.length ? (
+              <Link  onMouseLeave={()=>setHovering(false)} onMouseEnter={()=>setHovering(true)}
+                to={"/dashboard/cart"}
+                className="text-white relative text-xl"
+              >
+                <BsFillCartFill className="" />
+                <span className={`-top-3  text-center -right-3 absolute bg-yellow-25 w-5 h-5 text-[15px] flex items-center justify-center rounded-full text-black shadow-lg shadow-yellow-50 ${hovering?"":"circle"}  `}>{cart.length}</span>
+              </Link>
+            ) : (
+              <Link to={"/dashboard/cart"} className="text-white text-xl">
+                <BsCart3 />
+              </Link>
+            ))}
 
           {token === null && (
             <Link to={"/login"}>
@@ -109,7 +123,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-
+         
           {token !== null && <ProfileDropdown />}
         </div>
       </div>

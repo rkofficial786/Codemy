@@ -3,6 +3,7 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { BsFillChatLeftDotsFill, BsGlobeAmericas } from "react-icons/bs";
 import ContactUsForm from "../components/core/Contact/ContactUsForm";
 import Footer from './../components/common/Footer';
+import ReviewSlider from "../components/common/ReviewSlider";
 
 const Contact = () => {
   return (
@@ -62,7 +63,11 @@ const Contact = () => {
   
   {/* review */}
 
-  <div className="text-white">Reviews</div>
+  <div className="my-[70px] flex flex-col gap-7">
+        <h1 className="text-4xl text-white  text-center">Review from other Learners</h1>
+
+        <ReviewSlider />
+      </div>
   <div>
     <Footer/>
   </div>

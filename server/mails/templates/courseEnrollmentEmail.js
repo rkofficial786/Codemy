@@ -44,7 +44,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
               display: inline-block;
               padding: 10px 20px;
               background-color: #FFD60A;
-              color: #000000;
+              color: #333333;
               text-decoration: none;
               border-radius: 5px;
               font-size: 16px;
@@ -79,7 +79,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
               <a class="cta" href="https://studynotion-edtech-project.vercel.app/dashboard">Go to Dashboard</a>
           </div>
           <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                  href="mailto:info@studynotion.com">info@studynotion.com</a>. We are here to help!</div>
+                  href="mailto:excelshopping0@gmail.com">excelShopping.com</a>. We are here to help!</div>
       </div>
   </body>
   

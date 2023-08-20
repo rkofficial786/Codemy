@@ -7,6 +7,7 @@ import { useSelector } from "react-redux"
 import { createRating } from "../../../services/operations/courseDetailsAPI"
 import ReactStars from "react-stars"
 import BtnIcon from "../../common/BtnIcon"
+import { toast } from "react-hot-toast"
 // import IconBtn from "../../Common/IconBtn"
 
 export default function CourseReviewModal({ setReviewModal }) {
@@ -33,6 +34,10 @@ export default function CourseReviewModal({ setReviewModal }) {
   }
 
   const onSubmit = async (data) => {
+    if(data?.courseExperience?.length<50){
+      toast.error("Review is too short")
+      return
+    }
     await createRating(
       {
         courseId: courseEntireData._id,

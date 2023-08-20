@@ -187,7 +187,7 @@ const VideoDetails = () => {
         playsInline
         onEnded={() => setVideoEnded(true)}
         src={videoData?.videoUrl}
-        autoPlay
+        
       >
         <BigPlayButton position="center" />
         {/* Render When Video Ends */}
@@ -202,18 +202,20 @@ const VideoDetails = () => {
             {!completedLectures.includes(subSectionId) && (
               <BtnIcon
                 disabled={loading}
-                onclick={() => handleLectureCompletion()}
+                onClick={() => handleLectureCompletion()}
                 text={!loading ? "Mark As Completed" : "Loading..."}
                 customClasses="text-xl max-w-max px-4 mx-auto"
               />
             )}
             <BtnIcon
               disabled={loading}
-              onclick={() => {
+              onClick={() => {
                 if (playerRef?.current) {
                   // set the current time of the video to 0
                   playerRef?.current?.seek(0)
+                  
                   setVideoEnded(false)
+                  playerRef.current.play();
                 }
               }}
               text="Rewatch"

@@ -13,9 +13,6 @@ import {
 import CourseReviewModal from "../components/core/Video/CourseReviewModal";
 import VideoDetailsSidebar from "../components/core/Video/VideoDetailsSidebar";
 
-
-
-
 const ViewCourse = () => {
   const [reviewModal, setReviewModal] = useState(false);
   const { token } = useSelector((state) => state.auth);
@@ -40,18 +37,16 @@ const ViewCourse = () => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
- 
-
 
   return (
     <div className="absolute top-0 inset-0  bg-richblack-900">
       <style>
-    {`
+        {`
       .yaha {
         display: none;
       }
     `}
-  </style>
+      </style>
       <div className="text-white">
         <div className="lg:flex flex w-screen flex-col-reverse lg:flex-row">
           <div className="w-full lg:w-[25%] bg-richblack-900  text-white relative min-h-[calc(100vh-3.5rem)]">

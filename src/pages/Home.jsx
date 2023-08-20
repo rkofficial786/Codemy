@@ -18,7 +18,7 @@ const Home = () => {
     <div>
       {/* section1 */}
       <div className="relative mx-auto  flex max-w-maxContent flex-col w-11/12 items-center text-white justify-between gap-8">
-        <Link to={"/signup"} >
+        <Link to={"/signup"}>
           <div className="group mx-auto p-1 relative  mt-7 rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit">
             <div className="flex items-center  justify-center gap-4 rounded-full transition-all duration-200 group-hover:bg-richblack-900 py-2 px-10">
               <p>Become an Instructor</p>
@@ -133,9 +133,9 @@ const Home = () => {
       {/* section 2 */}
 
       <div class="h-auto bg-gradient-to-b from-richblack-900 to-richblue-500  ">
-            {/* tab section  */}
+        {/* tab section  */}
         <div className="w-11/12 mx-auto">
-          <TabSection/>
+          <TabSection />
         </div>
 
         <div className="w-11/12 max-w-maxContent flex items-center mx-auto gap-6">
@@ -187,13 +187,11 @@ const Home = () => {
           Review from Other Learners
         </h2>
 
-        <ReviewSlider/>
-
-        <div>
-          
+        <div className="my-[40px]">
+          <ReviewSlider />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

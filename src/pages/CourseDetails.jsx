@@ -162,6 +162,8 @@ const CourseDetails = () => {
         setCourseinCart(true);
       }
 
+      console.log("cart button",courseData?.data?.courseDetails);
+
       return;
     }
 
@@ -181,15 +183,15 @@ const CourseDetails = () => {
         style={containerStyle}
         className=" bg-no-repeat object-contain course-bg p-10 min-h-[450px] flex items-center"
       >
-        <div className="w-9/12  justify-center flex flex-col mx-auto gap-5">
-          <p className="text-5xl font-semibold w-[50%] ">
+        <div className="lg:w-9/12  justify-center flex flex-col mx-auto gap-5">
+          <p className="text-3xl lg:text-5xl font-semibold lg:w-[50%] ">
             <HighLightText text={courseName} />
           </p>
 
-          <p className="text-lg text-richblack-400 w-[60%]">
+          <p className="text-lg text-richblack-400 lg:w-[60%]">
             {courseDescription}
           </p>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 flex-wrap items-center">
             <span className="text-xl">{avgReviewCount}</span>
             <RatingStars Review_Count={avgReviewCount} />
             <span>{`(${ratingAndReviews?.length} Reviews)`}</span>
@@ -218,7 +220,7 @@ const CourseDetails = () => {
 
       {/* card */}
 
-      <div className="absolute rounded-lg right-[10%] top-[5%]  bg-richblack-700 w-[400px] flex flex-col gap-4 p-10">
+      <div className="lg:absolute rounded-lg right-[10%] top-[5%] bg-richblack-800 bg-opacity-30 backdrop-blur-lg  lg:bg-richblack-700 lg:w-[400px] flex flex-col gap-4 p-10">
         <img src={thumbnail} alt="" className="w-[350px] rounded-lg" />
         <p className="text-4xl font-semibold ">Rs. {price}/-</p>
         <div className="flex flex-col gap-3">
@@ -228,7 +230,7 @@ const CourseDetails = () => {
                 ? () => navigate("/dashboard/enrolled-courses")
                 : () => handleBuyCourse()
             }
-            className="bg-yellow-25 hover:shadow-lg hover:shadow-yellow-25 hover:scale-95 transition-all ease-in-out duration-200 text-black w-full rounded-lg border-black py-2 font-semibold text-lg"
+            className="bg-yellow-25 hover:shadow-lg hover:shadow-yellow-25 hover:scale-95 transition-all ease-in-out duration-200 text-black w-fit lg:w-full px-4 rounded-lg border-black py-2 font-semibold text-lg"
           >
             {user && studentsEnroled.includes(user?._id)
               ? "Go to Course"
@@ -237,13 +239,13 @@ const CourseDetails = () => {
           {user && !studentsEnroled.includes(user?._id) && (
              <button
              onClick={() => handleAddtoCart()}
-             className="bg-richblack-800 text-white w-full rounded-lg border-black py-2 font-semibold text-lg"
+             className="bg-richblack-800 px-4 text-white w-fit lg:w-full rounded-lg border-black py-2 font-semibold text-lg"
            >
              Add to Cart
            </button>
           )}
         </div>
-        <p className="text-center">30 days money back gurantee</p>
+        <p className="lg:text-center">30 days money back gurantee</p>
         <div className="flex flex-col gap-2 ">
           <p className="text-2xl ">This Course Requires</p>
           <p className="flex gap-1 ">
@@ -273,37 +275,29 @@ const CourseDetails = () => {
         </div>
       </div>
 
-      <div className="w-9/12 mx-auto mt-[60px]">
+      <div className="w-11/12 lg:w-9/12 mx-auto mt-[60px]">
         <div className="flex border-[1px] border-richblack-400  p-5 py-9  w-fit flex-col gap-5 ">
-          <p className="text-4xl">what You Will Learn ?</p>
+          <p className=" text-xl lg:text-4xl">what You Will Learn ?</p>
           <p>{whatYouWillLearn}</p>
         </div>
       </div>
 
-      <div className="w-9/12 mx-auto mt-[60px] flex gap-4 flex-col">
+      <div className="w-11/12 lg:w-9/12 mx-auto mt-[60px] flex gap-4 flex-col">
         <div>
           <p className="text-5xl">Course Content</p>
         </div>
         <div className="flex items-center justify-between w-[70%]">
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <span>{courseContent.length} section(s) </span>
             <span> {totalLectures} Lecture(s)</span>
             <span>{courseData.data?.totalDuration} total length</span>
           </div>
 
-          <div>
-            <button
-              className="text-ywllo-5"
-              onClick={() => setOpenSectionIndexes([])}
-            >
-              {" "}
-              Collapse All Section
-            </button>
-          </div>
+       
         </div>
 
         {/* //sections///.. */}
-        <div className="border-[1px] border-richblack-300 w-[70%]">
+        <div className="border-[1px] border-richblack-300 lg:w-[70%]">
           {courseContent?.map((section, index) => (
             <details
               key={index}

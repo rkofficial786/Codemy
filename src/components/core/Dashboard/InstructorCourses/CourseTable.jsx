@@ -32,6 +32,9 @@ const CourseTable = ({ courses, setCourses }) => {
     setConfiormationModal(null);
     setLoading(false);
   };
+
+  console.log("instrucor course",courses);
+  
   return (
     <div className="text-white mt-16">
       <Table>
@@ -77,7 +80,7 @@ const CourseTable = ({ courses, setCourses }) => {
                       )}
                     </div>
                   </Td>
-                  <Td>2 hr 30 min</Td>
+                  <Td>{Math.floor(course.courseContent[0].subSection[0].timeDuration /60) } minutes</Td>
                   <Td className="text-caribbeangreen-50 text-[14px]"><Formateprice price={course.price}/></Td>
                   <Td>
                     <button className="mr-[10px]" onClick={()=>{

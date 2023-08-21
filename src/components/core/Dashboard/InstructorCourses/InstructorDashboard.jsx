@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Formateprice from "./../../../common/Formateprice";
 import InstructorChart from "./InstructorChart";
 import InstructorPie from "./InstructorPie";
+import BtnIcon from "../../../common/BtnIcon";
+import InstructorDetailReport from "./InstructorDetailReport";
 
 const InstructorDashboard = () => {
   const { token } = useSelector((state) => state.auth);
@@ -47,18 +49,29 @@ const InstructorDashboard = () => {
     0
   );
 
+  const [detailReport,setDetailReport] =useState(false)
+
   return (
-    <div>
+    <div className=" ">
+
+      {
+        detailReport?(<div className=" mx-auto "> <InstructorDetailReport setDetailReport={setDetailReport} courses={courses} /> </div>):(<div>
+          
       <div className="space-y-2">
+        <div className="flex justify-between">
+          <div>
         <h1 className="text-2xl font-bold text-richblack-5">
           Hi {user?.firstName} 👋
         </h1>
         <p className="font-medium text-richblack-200">
           Let's start something new
         </p>
+        </div>
+        <BtnIcon onClick={()=>setDetailReport(true)} text={"Detailed Report"}/>
+        </div>
       </div>
       {loading ? (
-        <div className="spinner"></div>
+        <Loader/>
       ) : courses.length > 0 ? (
         <div>
           <div className="my-4 flex h-[550px] space-x-4">
@@ -150,6 +163,14 @@ const InstructorDashboard = () => {
           </Link>
         </div>
       )}
+        </div>)
+      }
+
+
+
+
+
+
     </div>
   );
 };

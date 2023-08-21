@@ -35,7 +35,7 @@ const Navbar = () => {
   }, []);
   const navigate = useNavigate();
   return (
-    <div className="h-16 flex nav-bar items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
+    <div className="h-16 flex nav-bar yaha items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link>
           <img src={logo} alt="" className="" loading="lazy" />

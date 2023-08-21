@@ -7,6 +7,7 @@ import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import BtnIcon from "../../common/BtnIcon";
 
 const EnrolledCourses = () => {
   const { token } = useSelector((state) => state.auth);
@@ -35,12 +36,15 @@ const EnrolledCourses = () => {
       {!enrolledCourse ? (
         <Loader />
       ) : !enrolledCourse.length ? (
-        "You Have not enrolled in any course"
+        <div className="flex justify-center items-center text-center">
+        <span>You Have not enrolled in any course</span>
+        <BtnIcon text={"Buy Course"}  onClick={()=>navigate("/catalog/Web-Development")}/></div>
+        
       ) : (
         <div>
           <Table className="">
-            <Thead className="rounded-xl">
-              <Tr className="rounded-tl-lg rounded-tr-lg border-2  rounded-md  bg-richblack-600">
+            <Thead className=" ">
+              <Tr className="border-2  rounded-md  bg-richblack-600">
                 <Th className="text-left px-3">Name</Th>
                 <Th className="text-left">Duration</Th>
                 <Th className="text-left">Progress</Th>

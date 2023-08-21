@@ -379,6 +379,21 @@ exports.getInstructorCourses = async (req, res) => {
     const instructorCourses = await Course.find({
       instructor: instructorId,
     }).sort({ createdAt: -1 })
+    .populate({
+      path: "instructor",
+      populate: {
+        path: "additionalDetails",
+      },
+    })
+    .populate("category")
+    .populate("ratingAndReviews")
+    .populate({
+      path: "courseContent",
+      populate: {
+        path: "subSection",
+      },
+    })
+    .exec()
 
     // Return the instructor's courses
     res.status(200).json({

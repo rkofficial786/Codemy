@@ -42,7 +42,7 @@ const ViewCourse = () => {
     <div className="absolute top-0 inset-0  bg-richblack-900">
       <style>
         {`
-      .yaha {
+      .yaha{
         display: none;
       }
     `}
@@ -54,7 +54,7 @@ const ViewCourse = () => {
           </div>
           <div className="h-[calc(100vh-3.5 rem)] lg:w-[75%]  overflow-hidden">
             <div className=" z-1000 bg-richblack-900  ml-auto flex items-center justify-center  py-10">
-              <Outlet />
+              <Outlet reviewModal={reviewModal} />
             </div>
           </div>
         </div>

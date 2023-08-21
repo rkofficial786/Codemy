@@ -19,18 +19,18 @@ export default function RenderCartCourses() {
         
           <div
             key={course._id}
-            className={`flex w-full flex-wrap  items-start justify-between gap-6 ${
+            className={`flex w-full flex-wrap  items-center md:items-start justify-center md:justify-between gap-6 ${
               indx !== cart.length - 1 && "border-b border-b-richblack-400 pb-6"
             } ${indx !== 0 && "mt-6"} `}
           >
             <Link to={`/courses/${course._id}`}>
-            <div className="flex flex-1  min-w-[300px] flex-col gap-4 xl:flex-row">
+            <div className="flex flex-1 items-center justify-center md:justify-start md:items-start  min-w-[300px] flex-col   gap-4 xl:flex-row">
               <img
                 src={course?.thumbnail}
                 alt={course?.courseName}
                 className="h-[148px] w-[220px] rounded-lg object-cover"
               />
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col items-center space-y-1">
                 <p className="text-lg font-medium text-richblack-5">
                   {course?.courseName}
                 </p>
@@ -63,7 +63,7 @@ export default function RenderCartCourses() {
               </div>
             </div>
             </Link>
-            <div className="flex flex-col items-end space-y-2">
+            <div className="flex gap-5 justify-start items-center md:gap-0 flex-row md:flex-col md:items-end space-y-2">
               <button
                 onClick={() => dispatch(removeFromCart(course._id))}
                 className="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200"

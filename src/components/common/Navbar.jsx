@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo/Logo-Full-Light.png";
+import logo2 from "../../assets/Logo/Logo-Small-Light.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import { NavbarLinks } from "./../../data/navbar-links";
@@ -38,22 +39,23 @@ const Navbar = () => {
     <div className="h-16 flex nav-bar yaha items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link>
-          <img src={logo} alt="" className="" loading="lazy" />
+          <img src={logo} alt="" className="hidden md:block" loading="lazy" />
+          <img src={logo2} alt="" className="md:hidden" loading="lazy" />
         </Link>
 
         <nav className=" ">
-          <ul className="grid grid-cols-4  items-center gap-6 text-richblack-200 cursor-pointer">
+          <ul className="grid grid-cols-4 mx-2 items-center lg:gap-6 text-richblack-200 cursor-pointer">
             {NavbarLinks.map((link, index) => {
               return (
                 <li
-                  className="navlink hover:text-richblack-5 transition-all ease-in-out duration-200"
+                  className="navlink  hover:text-richblack-5 transition-all ease-in-out duration-200"
                   key={index}
                 >
                   {link.title === "Catalog" ? (
                     <div className="group relative  ">
-                      <p className="flex gap-2 items-center">
+                      <p className="flex md:gap-2  pr-5  md:m-0 items-center text-sm md:text-md ">
                         {link.title}
-                        <IoIosArrowDown />
+                        <IoIosArrowDown className="text-lg"/>
                       </p>
                       <div className="invisible absolute left-[50%] translate-x-[-50%] translate-y-[10%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px]">
                         <div className="absolute  left-[50%] top-0 translate-x-[80%] translate-y-[-45%] h-6 w-6 rotate-45 rounded bg-richblack-5 "></div>
@@ -79,7 +81,7 @@ const Navbar = () => {
                     </div>
                   ) : (
                     <NavLink
-                      className={"text-richblack-200 hover:text-richblack-5"}
+                      className={"text-richblack-200 text-sm md:text-md hover:text-richblack-5"}
                       to={link?.path}
                     >
                       {link.title}

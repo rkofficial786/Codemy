@@ -10,7 +10,7 @@ const MyProfile = () => {
 
   return (
     <div className="text-white mx-auto flex w-11/12 flex-col justify-center  gap-12 items-center">
-      <h1 className="text-4xl font-semibold">My profile</h1>
+      <h1 className="text-4xl font-semibold ">My profile</h1>
 
       {/* section 1 */}
       <div className="bg-richblack-800 flex justify-between items-center  min-w-[360px] w-7/12 p-8 rounded-xl">

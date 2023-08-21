@@ -220,7 +220,7 @@ const CourseDetails = () => {
 
       {/* card */}
 
-      <div className="lg:absolute rounded-lg right-[10%] top-[5%] bg-richblack-800 bg-opacity-30 backdrop-blur-lg  lg:bg-richblack-700 lg:w-[400px] flex flex-col gap-4 p-10">
+      <div className="lg:absolute rounded-lg right-[10%] top-[5%] bg-richblack-800 bg-opacity-30 backdrop-blur-lg  lg:bg-richblack-700 lg:w-[400px] flex lg:items-start items-center flex-col gap-4 p-10">
         <img src={thumbnail} alt="" className="w-[350px] rounded-lg" />
         <p className="text-4xl font-semibold ">Rs. {price}/-</p>
         <div className="flex flex-col gap-3">
@@ -230,7 +230,7 @@ const CourseDetails = () => {
                 ? () => navigate("/dashboard/enrolled-courses")
                 : () => handleBuyCourse()
             }
-            className="bg-yellow-25 hover:shadow-lg hover:shadow-yellow-25 hover:scale-95 transition-all ease-in-out duration-200 text-black w-fit lg:w-full px-4 rounded-lg border-black py-2 font-semibold text-lg"
+            className="bg-yellow-25 hover:shadow-lg hover:shadow-yellow-25 hover:scale-95 transition-all ease-in-out duration-200 text-black   min-w-[240px] md:min-w-[300px] w-full px-4 rounded-lg border-black py-2 font-semibold text-lg"
           >
             {user && studentsEnroled.includes(user?._id)
               ? "Go to Course"
@@ -239,7 +239,7 @@ const CourseDetails = () => {
           {user && !studentsEnroled.includes(user?._id) && (
              <button
              onClick={() => handleAddtoCart()}
-             className="bg-richblack-800 px-4 text-white w-fit lg:w-full rounded-lg border-black py-2 font-semibold text-lg"
+             className="bg-richblack-800 px-4 text-white w-full rounded-lg border-black py-2 font-semibold text-lg"
            >
              Add to Cart
            </button>

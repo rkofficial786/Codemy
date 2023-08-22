@@ -85,7 +85,7 @@ const EnrolledCourses = () => {
                       <ProgressBar
                         completed={course.progressPercentage || 0}
                         height={"13px"}
-                        className="lg:w-[200px] text-sm"
+                        className="lg:w-[200px] text-xs"
                       />
                     </Td>
                   </Tr>

@@ -27,7 +27,7 @@ export default function ProfileDropdown() {
         <img
           src={user?.image}
           alt={`profile-${user?.firstName}`}
-          className="aspect-square sm:w-[30px]  w-[40px] rounded-full object-cover"
+          className=" sm:w-[30px]  w-[50px] rounded-full object-cover aspect-square "
         />
         <AiOutlineCaretDown className=" text-sm hidden md:block text-richblack-100" />
       </div>

@@ -28,16 +28,16 @@ export default function RenderCartCourses() {
               <img
                 src={course?.thumbnail}
                 alt={course?.courseName}
-                className="h-[148px] w-[220px] rounded-lg object-cover"
+                className="h-[148px] w-[200px] rounded-lg object-cover"
               />
-              <div className="flex flex-col items-center space-y-1">
+              <div className="flex flex-col items-center  lg:items-start ">
                 <p className="text-lg font-medium text-richblack-5">
                   {course?.courseName}
                 </p>
-                <p className="text-sm text-richblack-300">
+                <p className="text-sm text-center lg:text-left text-richblack-300">
                   {course?.category?.name}
                 </p>
-                <div className="flex items-center gap-2 ">
+                <div className="flex  md:w-[250px] items-center gap-2 ">
                   <span className="text-yellow-5">
                     {course?.ratingAndReviews?.reduce(
                       (acc, curr) => acc + curr.rating,

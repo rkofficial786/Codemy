@@ -3,11 +3,6 @@ import Button from "./Button";
 import { FaArrowRight } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 
-
-
-
-
-
 const CodeBlocks = ({
   position,
   heading,
@@ -18,14 +13,10 @@ const CodeBlocks = ({
   backgroundGradient,
   codecolor,
 }) => {
-
- 
- 
-
-
-
   return (
-    <div className={`flex ${position} my-20 justify-between flex-wrap sm:flex-nowrap`}>
+    <div
+      className={`flex ${position} my-20 justify-between flex-wrap sm:flex-nowrap`}
+    >
       {/* section 1 */}
 
       <div className="lg:w-[50%] flex flex-col gap-8">
@@ -50,13 +41,7 @@ const CodeBlocks = ({
       <div className="flex flex-row h-fit mt-8 w-[100%] lg:w-[500px] bg-opacity-30 bg-richblue-900 backdrop-filter backdrop-blur-lg">
         {/* create gradient todo */}
 
-
-     
-
-       
-
-   
-
+        {backgroundGradient}
 
         <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold">
           <p>1</p>

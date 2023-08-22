@@ -5,7 +5,7 @@ import BtnIcon from "../../../common/BtnIcon";
 const InstructorDetailReport = ({ courses, setDetailReport }) => {
   return (
     <div className="w-screen">
-      <div className="flex w-8/12 mx-auto justify-between items-center">
+      <div className="flex w-8/12 mx-auto justify-between flex-col sm:flex-row gap-3 items-center">
         <h1 className="text-3xl">My Courses</h1>
         <BtnIcon
           text={"Graph report"}
@@ -13,7 +13,7 @@ const InstructorDetailReport = ({ courses, setDetailReport }) => {
         />
       </div>
 
-      <div className="text-white mt-16 w-8/12 mx-auto ">
+      <div className="text-white mt-16 w-11/12 md:w-8/12 mx-auto ">
         <div className="text-left  grid-col-1 lg:grid-cols-5 gap-4 border-t border-b hidden lg:grid border-richblack-800">
           <div className="py-2 text-richblack-100 font-medium lg:col-span-2">
             Courses

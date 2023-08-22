@@ -177,7 +177,7 @@ const handleAutoPlay=()=>{
           className="h-full w-full rounded-md object-cover"
         />
       ) : (
-        <div className="w-[80%] video-shadow mx-auto ">
+        <div className="w-[100%] md:w-[80%] video-shadow mx-auto ">
           <div
             className="ml-3 absolute top-3  lg:invisible left-0 text-2xl"
             onClick={() => navigate("/dashboard/enrolled-courses")}

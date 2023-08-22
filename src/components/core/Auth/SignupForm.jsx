@@ -196,6 +196,7 @@ function SignupForm() {
             </span>
           </label>
         </div>
+        <p className="text-white md:hidden">Already have an account? <button onClick={()=>navigate("/login")} className="text-yellow-50 underline">Login</button></p>
         <button
           type="submit"
           className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"

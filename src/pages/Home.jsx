@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import Button from "../components/core/HomePage/Button";
-import BannerVideo from "../assets/Images/banner.mp4";
+import BannerVideo from "../assets/Images/banner2.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import { FaArrowRight } from "react-icons/fa";
 import TimelineSection from "../components/core/HomePage/TimelineSection";
@@ -50,7 +50,7 @@ const Home = () => {
           <div className="inset-0 w-full h-full bg-white absolute top-5 left-5 rounded-xl"></div>
 
           <video className="relative z-10" muted loop autoPlay>
-            <source src={BannerVideo} />
+            <source src="https://res.cloudinary.com/dcq1ivq4t/video/upload/f_auto:video,q_auto/v1/Study/dgge8mlqq0iqv2cq4auv" />
           </video>
         </div>
 
@@ -78,7 +78,7 @@ const Home = () => {
               active: false,
             }}
             codecolor={"text-yellow-300"}
-            backgroundGradient={""}
+            backgroundGradient={<div className="codeblock1 absolute"></div>}
             codeblock={`<!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +115,7 @@ const Home = () => {
               active: false,
             }}
             codecolor={"text-pink-200"}
-            backgroundGradient={""}
+            backgroundGradient={<div className="codeblock2 absolute"></div>}
             codeblock={`<!DOCTYPE html>
 <html>
 <head>

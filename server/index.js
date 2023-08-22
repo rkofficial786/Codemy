@@ -6,6 +6,7 @@ const userRoutes =require("./routes/User")
 const profileRoutes =require("./routes/Profile")
 const paymentRoutes =require("./routes/Payments")
 const courseRoutes =require("./routes/Course")
+const path=require("path")
 
 
 const database =require("./config/database")
@@ -41,6 +42,7 @@ app.use(
         tempFileDir:"/tmp"
     })
 )
+app.use(express.static(path.join(__dirname,'../build')))
 
 cloudinaryConnect()
 
@@ -51,6 +53,10 @@ app.use("/api/v1/course" ,courseRoutes)
 app.use("/api/v1/payment" ,paymentRoutes)
 
 
+//rest api
+app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname, "../build/index.html"))
+})
 
 app.get("/" ,(req,res)=>{
     return res.json({

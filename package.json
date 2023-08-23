@@ -1,5 +1,6 @@
 {
   "name": "react-tailwind-css-starter-pack",
+  "proxy": "http://localhost:4800",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

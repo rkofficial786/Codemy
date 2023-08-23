@@ -22,7 +22,7 @@ const MyCourses = () => {
   }, []);
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between gap-1 items-center">
         <h1 className="text-3xl">My Courses</h1>
         <BtnIcon
           text={"Add course"}

@@ -9,7 +9,7 @@ function Signup() {
       title={
         <>
           Join the millions learning to code with{' '}
-          <HighLightText text="StudyNotion" />
+          <HighLightText text="Codemy" />
           for free
         </>
       }

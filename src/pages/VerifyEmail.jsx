@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import OTPInput from "react-otp-input";
+import OtpInput from "react-otp-input";
 import { Link, useNavigate } from "react-router-dom";
 import { sendOtp, signUp } from "../services/operations/authAPI";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Loader from "../components/common/Loader";
+import { BiArrowBack } from "react-icons/bi";
+import { RxCountdownTimer } from "react-icons/rx";
 
 const VerifyEmail = () => {
   const { loading, signupData } = useSelector((state) => state.auth);
@@ -48,47 +50,55 @@ const VerifyEmail = () => {
       {loading ? (
         <div><Loader/></div>
       ) : (
-        <div className="text-white mx-[5%]  ">
-          <h1 className="text-3xl font-bold mb-4">
+        <div className="max-w-[500px] p-4 lg:p-8">
+       <h1 className="text-3xl font-bold mb-4">
             Verify <HighLightText text="Email" />
           </h1>
-          <p className="text-richblack-300 mb-6">
-            A verification email has been sent to your email address.
-          </p>
-          <form onSubmit={handleOnSubmit} className="">
-          <OTPInput
-           
-              value={otp}
-              onChange={setOtp}
-              numInputs={6}
-              renderSeparator={<span>-</span>}
-              renderInput={(props) => <input {...props} className="bg-richblack-800 w-[140px]  text-3xl  border-2 m-2  text-white " />}
-              placeholder="-"
-             
-            />
-            <button
-              type="submit"
-              className="w-full px-4 py-2 mt-6 rounded bg-yellow-50 text-richblack-900 font-medium "
-            >
-              Verify Email
-            </button>
-          </form>
-
-          <div className="mt-6 flex items-center justify-between">
-          <div>
-            <Link to="/login" className="text-blue-100 hover:text-blue-500 text-sm flex gap-2 items-center">
-            <AiOutlineArrowLeft/>
-              Back to login
-            </Link>
-          </div>
-            <button
-              onClick={() => dispatch(sendOtp(signupData.email, navigate))}
-              className="text-sm text-richblack-300 hover:text-richblack-5  focus:outline-none "
-            >
-              Resend OTP
-            </button>
-          </div>
+        <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
+          A verification code has been sent to you. Enter the code below
+        </p>
+        <form onSubmit={handleOnSubmit}>
+          <OtpInput
+            value={otp}
+            onChange={setOtp}
+            numInputs={6}
+            renderInput={(props) => (
+              <input
+                {...props}
+                placeholder="-"
+                style={{
+                  boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                }}
+                className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+              />
+            )}
+            containerStyle={{
+              justifyContent: "space-between",
+              gap: "0 6px",
+            }}
+          />
+          <button
+            type="submit"
+            className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
+          >
+            Verify Email
+          </button>
+        </form>
+        <div className="mt-6 flex items-center justify-between">
+          <Link to="/signup">
+            <p className="text-richblack-5 flex items-center gap-x-2">
+              <BiArrowBack /> Back To Signup
+            </p>
+          </Link>
+          <button
+            className="flex items-center text-blue-100 gap-x-2"
+            onClick={() => dispatch(sendOtp(signupData.email))}
+          >
+            <RxCountdownTimer />
+            Resend it
+          </button>
         </div>
+      </div>
       )}
     </div>
   );

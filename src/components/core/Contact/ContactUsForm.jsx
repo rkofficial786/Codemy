@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { apiConnector } from "../../../services/apiConnector";
 import { contactusEndpoint } from "../../../services/apis";
 import countrycode from "../../../data/countrycode.json";
+import { toast } from "react-hot-toast";
 
 const ContactUsForm = () => {
   const [loading, setLoading] = useState(false);
@@ -41,7 +42,15 @@ const ContactUsForm = () => {
         }
       );
       console.log("response,", response);
+      toast.success("sent successfully")
       setLoading(false);
+      reset({
+        email: "",
+        firstname: "",
+        lastname: "",
+        message: "",
+        phone: "",
+      });
       
     } catch (error) {
       console.log(error);

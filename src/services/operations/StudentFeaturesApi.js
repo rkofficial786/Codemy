@@ -39,7 +39,7 @@ export async function buyCourse(
     );
     if (!res) {
       toast.error("Razorpay SDK failed to load");
-      return;
+      return
     }
 
     //initiate the order

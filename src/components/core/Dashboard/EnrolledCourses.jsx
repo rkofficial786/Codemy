@@ -18,7 +18,6 @@ const EnrolledCourses = () => {
       const response = await getUserEnrolledCourses(token);
       console.log("enrolled course", enrolledCourse);
       setEnrolledCourse(response);
-     
     } catch (error) {
       console.log(error);
     }
@@ -29,17 +28,20 @@ const EnrolledCourses = () => {
   }, []);
   const navigate = useNavigate();
 
-  console.log("courseenrolled",enrolledCourse);
+  console.log("courseenrolled", enrolledCourse);
 
   return (
     <div className="mx-auto w-10/12 text-white">
       {!enrolledCourse ? (
         <Loader />
       ) : !enrolledCourse.length ? (
-        <div className="flex justify-center items-center text-center">
-        <span>You Have not enrolled in any course</span>
-        <BtnIcon text={"Buy Course"}  onClick={()=>navigate("/catalog/Web-Development")}/></div>
-        
+        <div className="flex justify-center gap-4 flex-col h-[80vh] items-center text-center">
+          <span>You Have not enrolled in any course</span>
+          <BtnIcon
+            text={"Buy Course"}
+            onClick={() => navigate("/catalog/Web-Development")}
+          />
+        </div>
       ) : (
         <div>
           <Table className="">
@@ -55,11 +57,11 @@ const EnrolledCourses = () => {
               {enrolledCourse?.map((course, index) => {
                 return (
                   <Tr
-                  onClick={() => {
-                    navigate(
-                      `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
-                    )
-                  }}
+                    onClick={() => {
+                      navigate(
+                        `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
+                      );
+                    }}
                     className="p-6 border-[1px] cursor-pointer border-richblack-400"
                   >
                     <Td className="flex gap-2 md:w-[60%] p-6 ">

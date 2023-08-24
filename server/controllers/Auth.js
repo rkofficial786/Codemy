@@ -114,23 +114,34 @@ exports.signUp = async (req, res) => {
 			});
 		}
 
-		// Find the most recent OTP for the email
-		const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-		console.log("reponse",response);
-		// if (response  response.length === 0) {
-		// 	// OTP not found for the email
-		// 	return res.status(400).json({
-		// 		success: false,
-		// 		message: "The OTP is incorrect",
-		// 	});
-		// } else 
-    if (otp && otp !== response[0].otp) {
-			// Invalid OTP
-			return res.status(400).json({
-				success: false,
-				message: "The OTP is not valid",
-			});
-		}
+// Find the most recent OTP for the email
+let response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+console.log("response", response);
+
+// Check if OTP is still being fetched (wait for a reasonable time)
+let otpFetched = false;
+let maxWaitTime = 10000; // Maximum wait time in milliseconds (adjust as needed)
+let currentTime = 0;
+
+while (!otpFetched && currentTime < maxWaitTime) {
+  if (response.length === 0) {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for 500ms
+    currentTime += 500;
+    response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+  } else {
+    otpFetched = true;
+  }
+}
+
+// Check OTP after fetching
+if (!otpFetched || otp !== response[0].otp) {
+  // Invalid OTP
+  return res.status(400).json({
+    success: false,
+    message: "The OTP is not valid",
+  });
+}
+
 
 
     //hash password

@@ -62,8 +62,8 @@ export async function buyCourse(
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "EduFlex",
-      description: "Thank You For Purchasing Course",
+      name: "Codemy",
+      description: "Thank You For Purchasing the Course",
       image: rzlogo,
       prefill: {
         name: `${userDetails.firstName}`,

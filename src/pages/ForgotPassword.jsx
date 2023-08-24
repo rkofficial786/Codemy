@@ -5,6 +5,7 @@ import { getPasswordResetToken } from "../services/operations/authAPI";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import Loader from "../components/common/Loader";
+import { Helmet } from "react-helmet";
 
 const ForgotPassword = () => {
   const [emailSent, setEmailsent] = useState(false);
@@ -19,10 +20,12 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex justify-center items-center h-[80vh]">
+
       {loading ? (
         <div><Loader/></div>
       ) : (
         <div className="text-white w-80">
+            <Helmet><title>Forget Password</title></Helmet>
           <h1 className="text-3xl font-bold mb-4">
             {!emailSent ? (
               <div>

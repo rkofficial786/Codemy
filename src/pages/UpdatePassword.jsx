@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from "react-icons/ai";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import Loader from "../components/common/Loader";
+import { Helmet } from "react-helmet";
 
 const UpdatePassword = () => {
   const { loading } = useSelector((state) => state.auth);
@@ -36,6 +37,7 @@ const UpdatePassword = () => {
         <div><Loader/></div>
       ) : (
         <div className="text-white w-80">
+          <Helmet > <title>Update Password</title></Helmet>
           <h1 className="text-3xl font-bold mb-4">Choose New <HighLightText text={"Password"}/></h1>
           <p className="text-richblack-300 mb-6">Almost Done. Enter your new password and you're all set.</p>
 

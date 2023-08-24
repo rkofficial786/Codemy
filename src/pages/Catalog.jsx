@@ -14,6 +14,7 @@ import CourseCard from "../components/core/Catalog/CourseCard";
 import CourseSlider from "../components/core/Catalog/CourseSlider";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import banner from "../assets/Screenshot_13.png"
+import { Helmet } from "react-helmet";
 
 function Catalog() {
   const { loading } = useSelector((state) => state.profile);
@@ -70,6 +71,7 @@ function Catalog() {
   };
   return (
     <div className="text-white">
+      <Helmet > <title>Catalog: {catalogName}</title></Helmet>
       {/* Hero Section */}
       <div className=" box-content  w-full " style={containerStyle}>
         <div className=" flex w-9/12 mx-auto min-h-[260px]  flex-col justify-center gap-4  ">

@@ -1,10 +1,12 @@
 import React from "react";
 import SideBar from "../components/core/Dashboard/SideBar";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Dashboard = () => {
   return (
     <div className="text-white  ">
+      <Helmet><title>Dashboard</title></Helmet>
       <div className="flex text-white relative w-full">
         <style>
           {`

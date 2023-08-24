@@ -8,6 +8,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import Loader from "../components/common/Loader";
 import { BiArrowBack } from "react-icons/bi";
 import { RxCountdownTimer } from "react-icons/rx";
+import { Helmet } from "react-helmet";
 
 const VerifyEmail = () => {
   const { loading, signupData } = useSelector((state) => state.auth);
@@ -51,6 +52,7 @@ const VerifyEmail = () => {
         <div><Loader/></div>
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
+          <Helmet > <title>Verify</title></Helmet>
        <h1 className="text-3xl font-bold mb-4">
             Verify <HighLightText text="Email" />
           </h1>

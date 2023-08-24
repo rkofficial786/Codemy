@@ -12,6 +12,7 @@ import ContactUsForm from "../components/core/Contact/ContactUsForm";
 import Footer from "./../components/common/Footer";
 import ReviewSlider from "../components/common/ReviewSlider";
 import banner from "../assets/Screenshot_13.png"
+import { Helmet } from "react-helmet";
 const About = () => {
   const containerStyle = {
     // minHeight: '100vh',
@@ -23,6 +24,7 @@ const About = () => {
   };
   return (
     <div className="text-richblack-5">
+      <Helmet > <title>About Us</title></Helmet>
       {/* section 1 */}
       <section className="bg-richblack-700 "  style={containerStyle}>
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/core/HomePage/Button";
+import { Helmet } from "react-helmet";
 
 const Error = () => {
   return (
     <div className="flex w-11/12 mx-auto max-w-maxContent flex-col items-center justify-center h-[80vh] text-white gap-6">
+      <Helmet><title>Error 404</title></Helmet>
       <p className="text-4xl text-pink-200 font-bold">Error 404: Page Not Found</p>
 
       <p className="text-lg text-gray-300 mt-4">

@@ -12,10 +12,12 @@ import InstructionSection from "../components/core/HomePage/InstructionSection";
 import TabSection from "../components/core/HomePage/TabSection";
 import Footer from "../components/common/Footer";
 import ReviewSlider from "../components/common/ReviewSlider";
+import {Helmet} from "react-helmet"
 
 const Home = () => {
   return (
     <div>
+      <Helmet > <title>Codemy: Code Your Journey</title></Helmet>
       {/* section1 */}
       <div className="relative mx-auto  flex max-w-maxContent flex-col w-11/12 items-center text-white justify-between gap-8">
         <Link to={"/signup"}>

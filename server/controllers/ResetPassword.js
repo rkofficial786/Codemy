@@ -1,7 +1,8 @@
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
 const crypto =require("crypto")
-const bcrypt =require("bcrypt")
+const bcrypt =require("bcrypt");
+const { passwordResetEmail } = require("../mails/templates/PasswordReset");
 
 //reset password token
 exports.resetPasswordToken = async (req, res) => {
@@ -22,12 +23,12 @@ exports.resetPasswordToken = async (req, res) => {
       { new: true }
     );
 
-    const url = `http://localhost:3000/update-password/${token}`;
+    const url = `https://codemy.onrender.com/${token}`;
 
     await mailSender(
       email,
-      "Password reser link",
-      `Password reset link :${url} `
+      "Password reset link",
+      passwordResetEmail(url,user.firstName)
     );
     return res.json({
       success: true,

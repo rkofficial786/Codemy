@@ -20,6 +20,7 @@ import { ACCOUNT_TYPE } from "../utils/constants";
 import { addToCart } from "../slices/cartSlice";
 import HighLightText from "./../components/core/HomePage/HighLightText";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { Helmet } from "react-helmet";
 const CourseDetails = () => {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
@@ -33,8 +34,6 @@ const CourseDetails = () => {
   const { cart } = useSelector((state) => state.cart);
 
   const [courseinCart, setCourseinCart] = useState(false);
-
-
 
   //collapse section\
 
@@ -138,10 +137,6 @@ const CourseDetails = () => {
     instructions,
   } = courseData.data?.courseDetails;
 
- 
-
-
-
   const containerStyle = {
     // minHeight: '100vh',
     width: "100%",
@@ -162,7 +157,7 @@ const CourseDetails = () => {
         setCourseinCart(true);
       }
 
-      console.log("cart button",courseData?.data?.courseDetails);
+      console.log("cart button", courseData?.data?.courseDetails);
 
       return;
     }
@@ -179,6 +174,7 @@ const CourseDetails = () => {
 
   return (
     <div className="flex flex-col text-white relative">
+      <Helmet><title>{courseData?.data?.courseDetails?.courseName}</title></Helmet>
       <div
         style={containerStyle}
         className=" bg-no-repeat object-contain course-bg p-10 min-h-[450px] flex items-center"
@@ -237,12 +233,12 @@ const CourseDetails = () => {
               : "Buy Now"}
           </button>
           {user && !studentsEnroled.includes(user?._id) && (
-             <button
-             onClick={() => handleAddtoCart()}
-             className="bg-richblack-800 px-4 text-white w-full rounded-lg border-black py-2 font-semibold text-lg"
-           >
-             Add to Cart
-           </button>
+            <button
+              onClick={() => handleAddtoCart()}
+              className="bg-richblack-800 px-4 text-white w-full rounded-lg border-black py-2 font-semibold text-lg"
+            >
+              Add to Cart
+            </button>
           )}
         </div>
         <p className="lg:text-center">30 days money back gurantee</p>
@@ -292,8 +288,6 @@ const CourseDetails = () => {
             <span> {totalLectures} Lecture(s)</span>
             <span>{courseData.data?.totalDuration} total length</span>
           </div>
-
-       
         </div>
 
         {/* //sections///.. */}

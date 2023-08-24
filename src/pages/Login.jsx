@@ -3,6 +3,7 @@ import loginImg from "../assets/Images/login.webp"
 import Template from "../components/core/Auth/Template"
 import HighLightText from "../components/core/HomePage/HighLightText"
 import Loader from "../components/common/Loader"
+import { Helmet } from "react-helmet"
 
 
 function Login() {
@@ -10,6 +11,7 @@ function Login() {
   const [loading ,setLoading] =useState(true)
   return (
     <div>
+       <Helmet > <title>Login</title></Helmet>
       
     <Template
     title={

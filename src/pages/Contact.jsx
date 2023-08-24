@@ -4,10 +4,12 @@ import { BsFillChatLeftDotsFill, BsGlobeAmericas } from "react-icons/bs";
 import ContactUsForm from "../components/core/Contact/ContactUsForm";
 import Footer from './../components/common/Footer';
 import ReviewSlider from "../components/common/ReviewSlider";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <section>
+      <Helmet > <title>Contact us</title></Helmet>
     <div className="w-11/12 max-w-maxContent mt-[100px] mx-auto flex-wrap flex gap-10 justify-center ">
       <div className="p-10 h-fit text-richblack-5 flex flex-col gap-6 bg-richblack-800   lg:w-[40%] rounded-xl">
         {/* fisrt */}

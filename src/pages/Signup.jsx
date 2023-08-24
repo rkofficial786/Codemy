@@ -2,9 +2,11 @@ import React from 'react';
 import signupImg from "../assets/Images/signup.webp";
 import Template from "../components/core/Auth/Template";
 import HighLightText from "../components/core/HomePage/HighLightText";
+import { Helmet } from 'react-helmet';
 
 function Signup() {
   return (
+    <> <Helmet > <title>Signup</title></Helmet>
     <Template
       title={
         <>
@@ -18,6 +20,7 @@ function Signup() {
       image={signupImg}
       formType="signup"
     />
+    </>
   );
 }
 

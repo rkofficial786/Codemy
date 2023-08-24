@@ -12,6 +12,7 @@ import {
 } from "../slices/viewCourseSlice";
 import CourseReviewModal from "../components/core/Video/CourseReviewModal";
 import VideoDetailsSidebar from "../components/core/Video/VideoDetailsSidebar";
+import { Helmet } from "react-helmet";
 
 const ViewCourse = () => {
   const [reviewModal, setReviewModal] = useState(false);
@@ -20,12 +21,14 @@ const ViewCourse = () => {
   const { courseId } = useParams();
 
   const dispatch = useDispatch();
+  const [courseDatas,setCourseDatas]=useState(null)
 
   useEffect(() => {
     (async () => {
       const courseData = await getFullDetailsOfCourse(courseId, token);
       // console.log("Course Data here... ", courseData.courseDetails)
       console.log("courseDara", courseData);
+      setCourseDatas(courseData)
       dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
       dispatch(setEntireCourseData(courseData.courseDetails));
       dispatch(setCompletedLectures(courseData.completedVideos));
@@ -40,6 +43,7 @@ const ViewCourse = () => {
 
   return (
     <div className="absolute top-0 inset-0  bg-richblack-900">
+      <Helmet > <title>{courseDatas?.courseDetails?.courseName}</title></Helmet>
       <style>
         {`
       .yaha{

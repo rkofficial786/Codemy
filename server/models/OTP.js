@@ -13,7 +13,7 @@ const OTPSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
     expires: 60*5,
   },
 });
@@ -32,10 +32,16 @@ async function sendVerificationEmail(email, otp) {
     console.log("error while sending mail", error);
   }
 }
-
+// Define a post-save hook to send email after the document has been saved
 OTPSchema.pre("save", async function (next) {
-  await sendVerificationEmail(this.email, this.otp);
-  next();
+	console.log("New document saved to database");
+
+	// Only send an email when a new document is created
+	if (this.isNew) {
+		await sendVerificationEmail(this.email, this.otp);
+	}
+	next();
 });
+
 
 module.exports = mongoose.model("OTP", OTPSchema);

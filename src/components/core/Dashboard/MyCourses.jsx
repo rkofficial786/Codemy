@@ -20,6 +20,14 @@ const MyCourses = () => {
     };
     fetchCourses();
   }, []);
+
+  if(courses.length===0 ){
+    return (
+      <div>
+        No Courses found
+      </div>
+    )
+  }
   return (
     <div>
       <div className="flex justify-between gap-1 items-center">

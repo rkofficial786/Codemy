@@ -143,7 +143,7 @@ const InstructorDashboard = () => {
                     </p>
                   </Link>
                 </div>
-                <div className="my-4 flex items-center justify-center md:items-start flex-wrap gap-3">
+                <div className="my-4 flex items-center justify-center md:items-start lg:flex-nowrap flex-wrap gap-3">
                   {courses.slice(0, 3).map((course) => (
                     <div key={course._id} className="w-1/3 min-w-[300px]">
                       <img

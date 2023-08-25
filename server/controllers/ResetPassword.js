@@ -23,7 +23,7 @@ exports.resetPasswordToken = async (req, res) => {
       { new: true }
     );
 
-    const url = `https://codemy.onrender.com/${token}`;
+    const url = `https://codemy.onrender.com//update-password/${token}`;
 
     await mailSender(
       email,

@@ -45,7 +45,7 @@ exports.passwordResetEmail = (url,name) => {
                 display: inline-block;
                 padding: 10px 20px;
                 background-color: #FFD60A;
-                color: #333333;
+                color: #000000;
                 text-decoration: none;
                 border-radius: 5px;
                 font-size: 16px;

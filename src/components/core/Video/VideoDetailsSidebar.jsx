@@ -81,7 +81,7 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
           {courseSectionData.map((section, sectionIndex) => (
             <div key={sectionIndex}>
               <div
-                className="cursor-pointer flex justify-between items-center bg-richblack-300  shadow-white border-y p-2 "
+                className="cursor-pointer flex justify-between items-center bg-richblack-700  shadow-white border-y p-2 "
                 onClick={() => setActiveStatus(section?._id)}
               >
                 <div className="flex w-full justify-between items-center">

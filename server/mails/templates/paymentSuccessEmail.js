@@ -45,7 +45,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
                 display: inline-block;
                 padding: 10px 20px;
                 background-color: #FFD60A;
-                color: #000000;
+                color: rgb(185, 34, 59);
                 text-decoration: none;
                 border-radius: 5px;
                 font-size: 16px;

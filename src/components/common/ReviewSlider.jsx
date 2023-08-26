@@ -77,7 +77,7 @@ const ReviewSlider = () => {
           </Swiper>
         </div>
       ) : (
-        <p>No Reviews Found</p>
+        <p className="text-center">No Reviews Found</p>
       )}
     </div>
   );

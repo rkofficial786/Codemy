@@ -1,19 +1,28 @@
-import { FiTrash2 } from "react-icons/fi"
-import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { FiTrash2 } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { deleteProfile } from "../../../../services/operations/SettingsAPI"
+import { deleteProfile } from "../../../../services/operations/SettingsAPI";
+import { useState } from "react";
+import ConfirmModal from "../../../common/ConfirmModal";
 
 export default function DeleteAccount() {
-  const { token } = useSelector((state) => state.auth)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [confirmationModal, setConfirmationModal] = useState(null);
   async function handleDeleteAccount() {
     try {
-      dispatch(deleteProfile(token, navigate))
+      setConfirmationModal({
+        text1: "Are you sure?",
+        text2: "Your account will be deleted permanently",
+        btn1Text: "Delete",
+        btn2Text: "Cancel",
+        btn1Handler: () => dispatch(deleteProfile(token, navigate)),
+        btn2Handler: () => setConfirmationModal(null),
+      });
     } catch (error) {
-      console.log("ERROR MESSAGE - ", error.message)
+      console.log("ERROR MESSAGE - ", error.message);
     }
   }
 
@@ -43,6 +52,7 @@ export default function DeleteAccount() {
           </button>
         </div>
       </div>
+      {confirmationModal && <ConfirmModal modalData={confirmationModal} />}
     </>
-  )
+  );
 }

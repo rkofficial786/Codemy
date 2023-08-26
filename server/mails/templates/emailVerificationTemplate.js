@@ -41,16 +41,16 @@ const otpTemplate = (otp) => {
 			}
 	
 			.cta {
-				display: inline-block;
-				padding: 10px 20px;
-				background-color: #FFD60A;
-				color: #000000;
-				text-decoration: none;
-				border-radius: 5px;
-				font-size: 16px;
-				font-weight: bold;
-				margin-top: 20px;
-			}
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #FFD60A;
+                color: rgb(185, 34, 59);
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 20px;
+            }
 	
 			.support {
 				font-size: 14px;

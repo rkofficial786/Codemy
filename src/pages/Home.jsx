@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import HighLightText from "../components/core/HomePage/HighLightText";
@@ -13,8 +13,26 @@ import TabSection from "../components/core/HomePage/TabSection";
 import Footer from "../components/common/Footer";
 import ReviewSlider from "../components/common/ReviewSlider";
 import {Helmet} from "react-helmet"
-
+import jwtDecode from "jwt-decode";
 const Home = () => {
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const isAuthenticated = !!token;
+
+    if (isAuthenticated) {
+      const decodedToken = jwtDecode(token);
+      const currentTime = Date.now() / 1000;
+      
+      if (decodedToken.exp < currentTime) {
+        // Token has expired, perform logout here
+        localStorage.removeItem('token');
+        // You might also want to redirect the user to the login page
+      }
+    }
+  }, []); // Empty dependency array ensures the effect runs only on mount
+
   return (
     <div>
       <Helmet > <title>Codemy: Code Your Journey</title></Helmet>

@@ -37,11 +37,14 @@ const ReviewCard = ({ review }) => {
         </div>
 
         <div>
-          <p>
+          <p className="overflow-hidden">
             {review.review.length > 140 ? (
-              <span>{review.review.substring(0, 140)}...</span>
+              <div>
+                <span className="hidden  md:block">{review.review.substring(0, 140)}...</span>
+                <span className="md:hidden h-[100px] text-[13px]">{review.review.substring(0, 100)}...</span>
+              </div>
             ) : (
-              <span>{review.review}</span>
+              <span className="max-h-[100px] overflow-hidden ">{review.review}</span>
             )}
           </p>
         </div>

@@ -172,6 +172,8 @@ const CourseDetails = () => {
     });
   };
 
+  console.log("course content ",courseContent);
+
   return (
     <div className="flex flex-col text-white relative">
       <Helmet><title>{courseData?.data?.courseDetails?.courseName}</title></Helmet>
@@ -299,9 +301,10 @@ const CourseDetails = () => {
             >
               <summary
                 onClick={() => toggleSection(index)}
-                className="h-14 flex pl-8 items-center w-full bg-richblack-600 border-b-[1px] border-richblack-500"
+                className="h-14 flex pl-8 items-center w-full bg-richblack-600 border-b-[1px] bg-opacity-50 backdrop-blur-lg border-richblack-500"
               >
-                <div className="flex items-center gap-1">
+                <div className="flex justify-between w-full  items-center gap-1">
+                  <div className="flex items-center gap-1">
                   <span>
                     <RiArrowDropDownLine
                       className={`text-3xl ${
@@ -310,6 +313,8 @@ const CourseDetails = () => {
                     />
                   </span>
                   {section.sectionName}
+                  </div> 
+                  <p className="text-yellow-25 mr-5">{section?.subSection?.length} Lecture(s)</p>
                 </div>
               </summary>
 

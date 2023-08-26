@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassword } from "../services/operations/authAPI";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineArrowLeft } from "react-icons/ai";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import Loader from "../components/common/Loader";
@@ -22,6 +22,7 @@ const UpdatePassword = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const navigate =useNavigate()
 
   const location = useLocation();
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const UpdatePassword = () => {
     e.preventDefault();
     const token = location.pathname.split("/").at(-1);
     dispatch(resetPassword(password, confirmPassword, token));
+    navigate("/login")
   };
 
   return (

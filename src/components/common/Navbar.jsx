@@ -38,9 +38,9 @@ const Navbar = () => {
   return (
     <div className="h-16 flex nav-bar yaha items-center justify-center border-b-[1px] border-b-richblack-700 border-opacity-40 shadow-richblack-700 shadow-lg">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
-        <Link to={"/"}>
-          <img src={logo} alt="" className="hidden md:block object-contain w-[150px] drop-shadow-lg  shadow-white" loading="lazy" />
-          <img src={logo2} alt="" className="md:hidden w-[50px]" loading="lazy" />
+        <Link to={"/"} >
+          <img src={logo} alt="" className=" hidden md:block object-contain w-[150px] "  loading="lazy" />
+          <img src={logo2} alt="" className="md:hidden w-[50px] " loading="lazy" />
         </Link>
 
         <nav className=" ">

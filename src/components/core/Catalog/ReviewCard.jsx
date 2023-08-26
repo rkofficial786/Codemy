@@ -28,29 +28,29 @@ const ReviewCard = ({ review }) => {
 
           <div>
             <p className="">
-              {review.user.firstName} {review.user.lastName}
+              {review?.user?.firstName} {review?.user?.lastName}
             </p>
             <p className="text-[12px] text-richblack-300">
-              {review.course.courseName}
+              {review?.course?.courseName}
             </p>
           </div>
         </div>
 
         <div>
           <p className="overflow-hidden">
-            {review.review.length > 140 ? (
+            {review?.review?.length > 140 ? (
               <div>
-                <span className="hidden  md:block">{review.review.substring(0, 140)}...</span>
-                <span className="md:hidden h-[100px] text-[13px]">{review.review.substring(0, 100)}...</span>
+                <span className="hidden  md:block">{review?.review?.substring(0, 140)}...</span>
+                <span className="md:hidden h-[100px] text-[13px]">{review?.review?.substring(0, 100)}...</span>
               </div>
             ) : (
-              <span className="max-h-[100px] overflow-hidden ">{review.review}</span>
+              <span className="max-h-[100px] overflow-hidden ">{review?.review}</span>
             )}
           </p>
         </div>
         <div className="flex gap-4 items-center">
-          <p> {review.rating}</p>
-          <RatingStars Review_Count={review.rating} />
+          <p> {review?.rating}</p>
+          <RatingStars Review_Count={review?.rating} />
         </div>
       </div>
     </NavLink>

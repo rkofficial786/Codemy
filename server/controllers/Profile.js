@@ -6,6 +6,7 @@ const User = require("../models/User")
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
 const mongoose = require("mongoose")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
+const RatingAndReview = require("../models/RatingAndReview")
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
   try {
@@ -73,6 +74,9 @@ exports.deleteAccount = async (req, res) => {
         message: "User not found",
       })
     }
+
+    await RatingAndReview.deleteMany({ user: id })
+
     // Delete Assosiated Profile with the User
     await Profile.findByIdAndDelete({
       _id: new mongoose.Types.ObjectId(user.additionalDetails),

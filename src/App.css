@@ -149,3 +149,7 @@ margin: 0;
 	);
 	/* backdrop-filter: blur(26px); */
   }
+
+  .logo{
+	filter: drop-shadow(6px 6px 6px #091072);
+  }

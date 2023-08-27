@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HomePageExplore } from "./../../../data/homepage-explore";
 import HighLightText from "./HighLightText";
 import CourseCard from "./CourseCard";
+import ReactVisibilitySensor from "react-visibility-sensor";
 
 const tabsName = [
   "Free",
@@ -33,6 +34,10 @@ const TabSection = () => {
     setMycards(value);
   };
 
+
+
+  
+
   return (
     <div className="text-white mx-auto relative">
       <div>
@@ -46,6 +51,7 @@ const TabSection = () => {
       </div>
 
       {/* Tabs for desktop */}
+     
       <div className="md:flex hidden items-center gap-5 justify-center bg-richblack-800 w-fit mx-auto rounded-full mt-[60px]  ">
         {tabsName.map((tab, index) => (
           <div
@@ -61,6 +67,7 @@ const TabSection = () => {
           </div>
         ))}
       </div>
+     
 
       {/* Select for mobile */}
       <div className="flex items-center gap-5 justify-center bg-richblack-800 mx-auto rounded-2xl mt-[30px] w-[200px] md:hidden">

@@ -153,3 +153,22 @@ margin: 0;
   .logo{
 	filter: drop-shadow(6px 6px 6px #091072);
   }
+
+
+
+  /* Add this to your CSS */
+/* Add this to your CSS */
+.animate-border {
+	animation: borderAnimation 2s ease-in-out  reverse;
+  }
+  
+  @keyframes borderAnimation {
+	0%, 100% {
+	  height: 0;
+	}
+	50% {
+	  height: 100%;
+	}
+  }
+  
+  

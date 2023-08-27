@@ -25,7 +25,7 @@ const Navbar = () => {
     try {
       const result = await apiConnector("GET", categories.CATEGORIES_API);
       setSubLinks(result.data.data);
-      console.log("Category", subLinks);
+     
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +63,7 @@ const Navbar = () => {
                         {subLinks &&
                           subLinks.map((category, index) => {
                             return (
-                              <div
+                              <div key={index}
                                 className="hover:bg-richblack-50 rounded-xl px-2 py-[2px] text-[20px]"
                                 onClick={() => {
                                   navigate(

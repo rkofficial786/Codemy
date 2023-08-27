@@ -3,7 +3,7 @@ import { BiSolidGroup } from "react-icons/bi";
 import { BsBezier } from "react-icons/bs";
 
 const CourseCard = ({ course, currentCard, setCurrentCard, index }) => {
-  console.log(course);
+  // console.log(course);
   return (
     <div className={`lg:w-[350px]  h-[300px] relative p-5 ${index === 0 ? "bg-white border-yellow-100 border-b-8 border-r-8 rounded-xl" : "bg-richblack-700 shadow-xl shadow-richblack-700"}`}>
       <div className="flex flex-col gap-7 lg:mb-10">

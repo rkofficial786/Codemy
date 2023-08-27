@@ -8,7 +8,7 @@ import Formateprice from "../../common/Formateprice";
 
 const CourseCard = ({ course, Height }) => {
   const [avgReviewCount, setAvgReviewCount] = useState(0);
-  console.log("courees", course);
+  // console.log("courees", course);
   useEffect(() => {
     const count = GetAvgRating(course?.ratingAndReviews);
     setAvgReviewCount(count);

@@ -27,7 +27,7 @@ const ViewCourse = () => {
     (async () => {
       const courseData = await getFullDetailsOfCourse(courseId, token);
       // console.log("Course Data here... ", courseData.courseDetails)
-      console.log("courseDara", courseData);
+      // console.log("courseDara", courseData);
       setCourseDatas(courseData)
       dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
       dispatch(setEntireCourseData(courseData.courseDetails));

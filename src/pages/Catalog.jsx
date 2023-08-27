@@ -15,6 +15,7 @@ import CourseSlider from "../components/core/Catalog/CourseSlider";
 import HighLightText from "../components/core/HomePage/HighLightText";
 import banner from "../assets/Screenshot_13.png"
 import { Helmet } from "react-helmet";
+import Loader from "../components/common/Loader";
 
 function Catalog() {
   const { loading } = useSelector((state) => state.profile);
@@ -50,6 +51,11 @@ function Catalog() {
       })();
     }
   }, [categoryId]);
+  if(loading){
+    return(
+      <div><Loader/></div>
+    )
+  }
 
   if (loading || !catalogPageData) {
     return (

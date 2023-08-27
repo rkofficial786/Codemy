@@ -49,7 +49,7 @@ const CourseDetails = () => {
     else {
       setOpenSectionIndexes((prevIndexes) => [...prevIndexes, index]); // Open the clicked section
     }
-    console.log("index", openSectionIndexes);
+    // console.log("index", openSectionIndexes);
   };
 
   const handleCopy = () => {
@@ -157,7 +157,7 @@ const CourseDetails = () => {
         setCourseinCart(true);
       }
 
-      console.log("cart button", courseData?.data?.courseDetails);
+      // console.log("cart button", courseData?.data?.courseDetails);
 
       return;
     }
@@ -172,7 +172,7 @@ const CourseDetails = () => {
     });
   };
 
-  console.log("course content ",courseContent);
+  // console.log("course content ",courseContent);
 
   return (
     <div className="flex flex-col text-white relative">
@@ -249,9 +249,9 @@ const CourseDetails = () => {
           <p className="flex gap-1 ">
             {" "}
             <span className="text-richblack-100">
-              {instructions.map((inst) => {
+              {instructions.map((inst ,index) => {
                 return (
-                  <div className="flex ">
+                  <div key={index} className="flex ">
                     <span>
                       <BiSolidRightArrow className="text-caribbeangreen-300" />
                     </span>

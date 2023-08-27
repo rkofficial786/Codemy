@@ -24,7 +24,7 @@ const InstructorDashboard = () => {
       setLoading(true);
       const instructorApiData = await getInstructorData(token);
 
-      console.log("instructor api", instructorApiData.courses);
+      // console.log("instructor api", instructorApiData.courses);
       const result = await fetchInstructorCourses(token);
 
       setInstructorData(instructorApiData?.courses);

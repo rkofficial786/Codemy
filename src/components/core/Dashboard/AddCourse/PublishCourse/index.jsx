@@ -42,7 +42,7 @@ export default function PublishCourse() {
       // form has not been updated
       // no need to make api call
       goToCourses();
-      console.log("lol");
+      // console.log("lol");
       return;
     }
     const formData = new FormData();
@@ -54,7 +54,7 @@ export default function PublishCourse() {
     setLoading(true);
 
     const result = await editCourseDetails(formData, token);
-    console.log("result", result);
+    // console.log("result", result);
     if (result) {
       goToCourses();
     }

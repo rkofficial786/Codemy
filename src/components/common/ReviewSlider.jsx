@@ -37,7 +37,7 @@ const ReviewSlider = () => {
   }, []);
 
 
-  console.log("printing review", reviews);
+ 
 
   return (
     <div className="  ">

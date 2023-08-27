@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-css-starter-pack",
-  "proxy": "https://codemy-dnpn.vercel.app",
+  "proxy": "http://localhost:4000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

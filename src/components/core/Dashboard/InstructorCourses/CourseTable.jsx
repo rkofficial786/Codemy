@@ -33,7 +33,7 @@ const CourseTable = ({ courses, setCourses }) => {
     setLoading(false);
   };
 
-  console.log("instrucor course",courses);
+  // console.log("instrucor course",courses);
   
   return (
     <div className="text-white mt-16">

@@ -151,7 +151,7 @@ const enrollStudents = async (courses, userId, res) => {
           `${enrolledStudent.firstName}`
         )
       );
-      console.log("Email sent", emailResponse);
+      // console.log("Email sent", emailResponse);
     } catch (error) {
       console.log(error);
       return res.status(500).json({

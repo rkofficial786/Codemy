@@ -12,7 +12,7 @@ export const fetchCourseCategories =async()=>{
     try {
         
         const response =await apiConnector("GET",COURSE_CATEGORIES_API)
-        console.log("course categ", response);
+        // console.log("course categ", response);
 
         result =response?.data?.data 
 

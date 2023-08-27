@@ -116,7 +116,7 @@ exports.signUp = async (req, res) => {
 
 // Find the most recent OTP for the email
 let response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-console.log("response", response);
+// console.log("response", response);
 
 // Check if OTP is still being fetched (wait for a reasonable time)
 let otpFetched = false;
@@ -275,9 +275,9 @@ exports.sendOTP = async (req, res) => {
       specialChars: false,
     })
     const result = await OTP.findOne({ otp: otp })
-    console.log("Result is Generate OTP Func")
-    console.log("OTP", otp)
-    console.log("Result", result)
+    // console.log("Result is Generate OTP Func")
+    // console.log("OTP", otp)
+    // console.log("Result", result)
     while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
@@ -285,7 +285,7 @@ exports.sendOTP = async (req, res) => {
     }
     const otpPayload = { email, otp }
     const otpBody = await OTP.create(otpPayload)
-    console.log("OTP Body", otpBody)
+    // console.log("OTP Body", otpBody)
     res.status(200).json({
       success: true,
       message: `OTP Sent Successfully`,
@@ -332,7 +332,7 @@ exports.changePassword = async (req, res) => {
       "Password changed",
       "Your account password has been changed"
     );
-    console.log("email sent successfully", mailResponse);
+    // console.log("email sent successfully", mailResponse);
 
     return res.status(200).json({
       success: true,

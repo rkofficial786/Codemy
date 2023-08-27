@@ -149,7 +149,7 @@ export default function CourseInformationForm() {
     formData.append("thumbnailImage", data.courseImage);
     setLoading(true);
     const result = await addCourseDetails(formData, token);
-    console.log("add course details result",result);
+    // console.log("add course details result",result);
     if (result) {
       dispatch(setStep(2));
       dispatch(setCourse(result));

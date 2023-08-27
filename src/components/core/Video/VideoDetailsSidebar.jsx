@@ -43,7 +43,7 @@ const VideoDetailsSidebar = ({ setReviewModal }) => {
         ]?._id;
       setActiveStatus(courseSectionData?.[currentSectionIndex]?._id);
       setvideoActive(activeSubSectionId);
-      console.log("cc", completedLectures);
+      // console.log("cc", completedLectures);
     };
     setActiveFlags();
   }, [courseSectionData, courseEntireData, location.pathname]);

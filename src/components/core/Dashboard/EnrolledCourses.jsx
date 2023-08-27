@@ -16,7 +16,7 @@ const EnrolledCourses = () => {
   const getEnrolledCourse = async () => {
     try {
       const response = await getUserEnrolledCourses(token);
-      console.log("enrolled course", enrolledCourse);
+      // console.log("enrolled course", enrolledCourse);
       setEnrolledCourse(response);
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ const EnrolledCourses = () => {
   }, []);
   const navigate = useNavigate();
 
-  console.log("courseenrolled", enrolledCourse);
+  // console.log("courseenrolled", enrolledCourse);
 
   return (
     <div className="mx-auto w-10/12 text-white">
@@ -57,6 +57,7 @@ const EnrolledCourses = () => {
               {enrolledCourse?.map((course, index) => {
                 return (
                   <Tr
+                  key={index}
                     onClick={() => {
                       navigate(
                         `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`

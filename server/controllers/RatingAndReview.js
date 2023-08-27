@@ -9,20 +9,20 @@ exports.createRating = async (req, res) => {
   try {
     const userId = req.user.id;
     const { rating, review, courseId } = req.body;
-    console.log("rating",rating);
-    console.log("rating",review);
+    // console.log("rating",rating);
+    // console.log("rating",review);
     const courseDetails = await Course.findOne({
       _id: courseId,
       studentsEnroled: { $elemMatch: { $eq: userId } },
     });
-    console.log("3");
+    // console.log("3");
     if (!courseDetails) {
       return res.status(404).json({
         success: false,
         message: "Student is not enrolled ",
       });
     }
-    console.log("2");
+    // console.log("2");
     const alreadyReviewed = await RatingAndReviews.findOne({
       user: userId,
       course: courseId,
@@ -33,7 +33,7 @@ exports.createRating = async (req, res) => {
         message: "User already reviewed",
       });
     }
-    console.log("1");
+    // console.log("1");
 
     const ratingReview = await RatingAndReviews.create({
       rating,
@@ -51,7 +51,7 @@ exports.createRating = async (req, res) => {
       },
       { new: true }
     );
-    console.log(updatedCourseDetails);
+    // console.log(updatedCourseDetails);
     return res.status(200).json({
       success: true,
       message: "Rating and Review created successfully",

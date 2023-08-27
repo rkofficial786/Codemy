@@ -84,7 +84,7 @@ export async function buyCourse(
     paymentObject.open()
     paymentObject.on("payment.failed",function(response){
         toast.error("Opps ,payment failed");
-        console.log(response.error);
+        // console.log(response.error);
 
     })
     

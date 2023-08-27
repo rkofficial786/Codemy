@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import RenderSteps from "./../AddCourse/RenderSteps";
 import { getFullDetailsOfCourse } from "../../../../services/operations/courseDetailsAPI";
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice";
+import Loader from './../../../common/Loader';
 
 export default function EditCourse() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function EditCourse() {
   if(loading){
     return (
         <div>
-            loading...
+            <Loader/>
         </div>
     )
   }

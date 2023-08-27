@@ -28,9 +28,9 @@ const ContactUsForm = () => {
   }, [isSubmitSuccessful, reset]);
 
   const submitContactForm = async (data) => {
-    console.log("data", data);
+    
     const {firstname ,lastname ,email ,phone,message} = data
-    console.log("firstname",firstname);
+   
 
     try {
       setLoading(true);
@@ -41,7 +41,7 @@ const ContactUsForm = () => {
           firstname,lastname,email,message,phone
         }
       );
-      console.log("response,", response);
+      
       toast.success("sent successfully")
       setLoading(false);
       reset({

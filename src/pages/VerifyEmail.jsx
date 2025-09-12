@@ -49,58 +49,63 @@ const VerifyEmail = () => {
   return (
     <div className="flex justify-center items-center h-[80vh]">
       {loading ? (
-        <div><Loader/></div>
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
-          <Helmet > <title>Verify</title></Helmet>
-       <h1 className="text-3xl text-white font-bold mb-4">
+          <Helmet>
+            {" "}
+            <title>Verify</title>
+          </Helmet>
+          <h1 className="text-3xl text-white font-bold mb-4">
             Verify <HighLightText text="Email" />
           </h1>
-        <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
-          A verification code has been sent to you. Enter the code below
-        </p>
-        <form onSubmit={handleOnSubmit}>
-          <OtpInput
-            value={otp}
-            onChange={setOtp}
-            numInputs={6}
-            renderInput={(props) => (
-              <input
-                {...props}
-                placeholder="-"
-                style={{
-                  boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                }}
-                className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
-              />
-            )}
-            containerStyle={{
-              justifyContent: "space-between",
-              gap: "0 6px",
-            }}
-          />
-          <button
-            type="submit"
-            className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
-          >
-            Verify Email
-          </button>
-        </form>
-        <div className="mt-6 flex items-center justify-between">
-          <Link to="/signup">
-            <p className="text-richblack-5 flex items-center gap-x-2">
-              <BiArrowBack /> Back To Signup
-            </p>
-          </Link>
-          <button
-            className="flex items-center text-blue-100 gap-x-2"
-            onClick={() => dispatch(sendOtp(signupData.email))}
-          >
-            <RxCountdownTimer />
-            Resend it
-          </button>
+          <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
+            A verification code has been sent to you. Enter the code below
+          </p>
+          <form onSubmit={handleOnSubmit}>
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={6}
+              renderInput={(props) => (
+                <input
+                  {...props}
+                  placeholder="-"
+                  style={{
+                    boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                  }}
+                  className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                />
+              )}
+              containerStyle={{
+                justifyContent: "space-between",
+                gap: "0 6px",
+              }}
+            />
+            <button
+              type="submit"
+              className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
+            >
+              Verify Email
+            </button>
+          </form>
+          <div className="mt-6 flex items-center justify-between">
+            <Link to="/signup">
+              <p className="text-richblack-5 flex items-center gap-x-2">
+                <BiArrowBack /> Back To Signup
+              </p>
+            </Link>
+            <button
+              className="flex items-center text-blue-100 gap-x-2"
+              onClick={() => dispatch(sendOtp(signupData.email))}
+            >
+              <RxCountdownTimer />
+              Resend it
+            </button>
+          </div>
         </div>
-      </div>
       )}
     </div>
   );

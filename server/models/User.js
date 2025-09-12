@@ -33,8 +33,8 @@ const userSchema = new mongoose.Schema({
     required: true,
     ref: "Profile",
   },
-  approved:{
-type:String
+  approved: {
+    type: String,
   },
 
   courses: [

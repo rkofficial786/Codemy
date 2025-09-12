@@ -124,6 +124,7 @@ function Catalog() {
           />
         </div>
       </div>
+      
 
       {/* Section 3 */}
       <div className="w-9/12 mx-auto flex flex-col gap-6 mt-[40px]">

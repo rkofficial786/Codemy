@@ -106,43 +106,41 @@ exports.signUp = async (req, res) => {
     }
 
     // Check if user already exists
-		const existingUser = await User.findOne({ email });
-		if (existingUser) {
-			return res.status(400).json({
-				success: false,
-				message: "User already exists. Please sign in to continue.",
-			});
-		}
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "User already exists. Please sign in to continue.",
+      });
+    }
 
-// Find the most recent OTP for the email
-let response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-// console.log("response", response);
+    // Find the most recent OTP for the email
+    let response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+    // console.log("response", response);
 
-// Check if OTP is still being fetched (wait for a reasonable time)
-let otpFetched = false;
-let maxWaitTime = 10000; // Maximum wait time in milliseconds (adjust as needed)
-let currentTime = 0;
+    // Check if OTP is still being fetched (wait for a reasonable time)
+    let otpFetched = false;
+    let maxWaitTime = 10000; // Maximum wait time in milliseconds (adjust as needed)
+    let currentTime = 0;
 
-while (!otpFetched && currentTime < maxWaitTime) {
-  if (response.length === 0) {
-    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for 500ms
-    currentTime += 200;
-    response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-  } else {
-    otpFetched = true;
-  }
-}
+    while (!otpFetched && currentTime < maxWaitTime) {
+      if (response.length === 0) {
+        await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for 500ms
+        currentTime += 200;
+        response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+      } else {
+        otpFetched = true;
+      }
+    }
 
-// Check OTP after fetching
-if (!otpFetched || otp !== response[0].otp) {
-  // Invalid OTP
-  return res.status(400).json({
-    success: false,
-    message: "The OTP is not valid",
-  });
-}
-
-
+    // Check OTP after fetching
+    if (!otpFetched || otp !== response[0].otp) {
+      // Invalid OTP
+      return res.status(400).json({
+        success: false,
+        message: "The OTP is not valid",
+      });
+    }
 
     //hash password
 
@@ -155,17 +153,17 @@ if (!otpFetched || otp !== response[0].otp) {
       contactNumber: null,
     });
     let approved = "";
-		approved === "Instructor" ? (approved = false) : (approved = true);
+    approved === "Instructor" ? (approved = false) : (approved = true);
     const user = await User.create({
       firstName,
-			lastName,
-			email,
-			contactNumber,
-			password: hashedPassword,
-			accountType: accountType,
-			approved: approved,
-			additionalDetails: profileDetails._id,
-			image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+      lastName,
+      email,
+      contactNumber,
+      password: hashedPassword,
+      accountType: accountType,
+      approved: approved,
+      additionalDetails: profileDetails._id,
+      image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     });
 
     return res.status(200).json({
@@ -199,7 +197,7 @@ exports.login = async (req, res) => {
     //check exist user
 
     const user = await User.findOne({ email }).populate("additionalDetails");
-   
+
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -247,17 +245,14 @@ exports.login = async (req, res) => {
   }
 };
 
-
-
-
 // Send OTP For Email Verification
 exports.sendOTP = async (req, res) => {
   try {
-    const { email } = req.body
+    const { email } = req.body;
 
     // Check if user is already present
     // Find user with provided email
-    const checkUserPresent = await User.findOne({ email })
+    const checkUserPresent = await User.findOne({ email });
     // to be used in case of signup
 
     // If user found with provided email
@@ -266,38 +261,36 @@ exports.sendOTP = async (req, res) => {
       return res.status(401).json({
         success: false,
         message: `User is Already Registered`,
-      })
+      });
     }
 
     var otp = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
       lowerCaseAlphabets: false,
       specialChars: false,
-    })
-    const result = await OTP.findOne({ otp: otp })
+    });
+    const result = await OTP.findOne({ otp: otp });
     // console.log("Result is Generate OTP Func")
     // console.log("OTP", otp)
     // console.log("Result", result)
     while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
-      })
+      });
     }
-    const otpPayload = { email, otp }
-    const otpBody = await OTP.create(otpPayload)
+    const otpPayload = { email, otp };
+    const otpBody = await OTP.create(otpPayload);
     // console.log("OTP Body", otpBody)
     res.status(200).json({
       success: true,
       message: `OTP Sent Successfully`,
       otp,
-    })
+    });
   } catch (error) {
-    console.log(error.message)
-    return res.status(500).json({ success: false, error: error.message })
+    console.log(error.message);
+    return res.status(500).json({ success: false, error: error.message });
   }
-}
-
-
+};
 
 //change password
 
@@ -310,15 +303,14 @@ exports.changePassword = async (req, res) => {
         message: "password does not match",
       });
     }
-    const userDetails = await User.findOne({email:email})
+    const userDetails = await User.findOne({ email: email });
 
-   if(password !== userDetails.password){
-    return res.status(401).json({
-      success: false,
-      message: "Password incorrect",
-    });
-   }
-
+    if (password !== userDetails.password) {
+      return res.status(401).json({
+        success: false,
+        message: "Password incorrect",
+      });
+    }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     const user = await User.findOneAndUpdate(

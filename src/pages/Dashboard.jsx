@@ -6,7 +6,9 @@ import { Helmet } from "react-helmet";
 const Dashboard = () => {
   return (
     <div className="text-white  ">
-      <Helmet><title>Dashboard</title></Helmet>
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <div className="flex text-white relative w-full">
         <style>
           {`
@@ -21,9 +23,8 @@ const Dashboard = () => {
             }
           `}
         </style>
-        
-          <SideBar />
-        
+
+        <SideBar />
 
         <div className="h-[calc(100vh-3.5 rem)] w-full  overflow-auto ">
           <div className=" lg:w-[calc(100vw-250px)] ml-auto flex items-center justify-center  py-10">

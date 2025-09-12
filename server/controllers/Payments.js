@@ -10,7 +10,7 @@ const { default: mongoose } = require("mongoose");
 const {
   paymentSuccessEmail,
 } = require("../mails/templates/paymentSuccessEmail");
-const crypto =require("crypto");
+const crypto = require("crypto");
 const CourseProgress = require("../models/CourseProgress");
 
 exports.capturePayments = async (req, res) => {
@@ -32,7 +32,7 @@ exports.capturePayments = async (req, res) => {
           .json({ success: false, message: "Could not find the course" });
       }
       const uid = new mongoose.Types.ObjectId(userId);
-      
+
       if (course.studentsEnroled.includes(uid)) {
         return res
           .status(200)
@@ -56,7 +56,7 @@ exports.capturePayments = async (req, res) => {
     res.json({
       success: true,
       message: "Payment success",
-      data:paymentResponse
+      data: paymentResponse,
     });
   } catch (error) {
     console.log(error);
@@ -96,7 +96,7 @@ exports.verifyPayment = async (req, res) => {
 
   if (expectedSignature === razorpay_signature) {
     //enroll
-      enrollStudents(courses,userId)
+    enrollStudents(courses, userId);
     //return
     return res.status(200).json({ success: true, message: "payment Verified" });
   }
@@ -122,26 +122,23 @@ const enrollStudents = async (courses, userId, res) => {
           .json({ success: false, message: "Course Not Found" });
       }
 
-   // course progress daldo
-   const courseProgress=await CourseProgress.create({
-    courseID:courseId,
-    userId:userId,
-    completedVideo:[]
-  })
-
+      // course progress daldo
+      const courseProgress = await CourseProgress.create({
+        courseID: courseId,
+        userId: userId,
+        completedVideo: [],
+      });
 
       const enrolledStudent = await User.findByIdAndUpdate(
         userId,
         {
           $push: {
             courses: courseId,
-            courseProgress:courseProgress._id
+            courseProgress: courseProgress._id,
           },
         },
         { new: true }
       );
-
-   
 
       const emailResponse = await mailSender(
         enrolledStudent.email,
@@ -186,10 +183,11 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
       )
     );
   } catch (error) {
-    console.log("Error in sending mail" ,error);
+    console.log("Error in sending mail", error);
     return res.status(500).json({
-      success:true ,message:"Could not send email"
-    })
+      success: true,
+      message: "Could not send email",
+    });
   }
 };
 

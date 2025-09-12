@@ -32,12 +32,12 @@ import { useEffect } from "react";
 import InstructorDashboard from "./components/core/Dashboard/InstructorCourses/InstructorDashboard";
 
 function App() {
-
   const { user } = useSelector((state) => state.profile);
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
-      <div className="z-[1000]"> 
-      <Navbar /></div>
+      <div className="z-[1000]">
+        <Navbar />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Error />} />
@@ -127,7 +127,10 @@ function App() {
           {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
             <>
               <Route path="dashboard/add-course" element={<AddCourse />} />
-              <Route path="dashboard/instructor" element={<InstructorDashboard />} />
+              <Route
+                path="dashboard/instructor"
+                element={<InstructorDashboard />}
+              />
               <Route path="dashboard/my-courses" element={<MyCourses />} />
               <Route
                 path="dashboard/edit-course/:courseId"

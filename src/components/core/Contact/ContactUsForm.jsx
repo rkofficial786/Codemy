@@ -28,9 +28,7 @@ const ContactUsForm = () => {
   }, [isSubmitSuccessful, reset]);
 
   const submitContactForm = async (data) => {
-    
-    const {firstname ,lastname ,email ,phone,message} = data
-   
+    const { firstname, lastname, email, phone, message } = data;
 
     try {
       setLoading(true);
@@ -38,11 +36,15 @@ const ContactUsForm = () => {
         "POST",
         contactusEndpoint.CONTACT_US_API,
         {
-          firstname,lastname,email,message,phone
+          firstname,
+          lastname,
+          email,
+          message,
+          phone,
         }
       );
-      
-      toast.success("sent successfully")
+
+      toast.success("sent successfully");
       setLoading(false);
       reset({
         email: "",
@@ -51,7 +53,6 @@ const ContactUsForm = () => {
         message: "",
         phone: "",
       });
-      
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -140,8 +141,8 @@ const ContactUsForm = () => {
                 className="w-[80px] rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
               >
                 {countrycode.map((elem, index) => (
-                  <option className="" value={elem.code} key={index} >
-                    {elem.code} -  {elem.country}
+                  <option className="" value={elem.code} key={index}>
+                    {elem.code} - {elem.country}
                   </option>
                 ))}
               </select>

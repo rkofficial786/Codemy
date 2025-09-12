@@ -68,6 +68,7 @@ const CodeBlocks = ({
             omitDeletionAnimation={true}
           />
         </div>
+      
       </div>
     </div>
   );

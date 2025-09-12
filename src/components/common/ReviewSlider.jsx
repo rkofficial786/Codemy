@@ -30,14 +30,10 @@ const ReviewSlider = () => {
         if (data?.success) {
           setReviews(data?.data);
         }
-        
       } catch (error) {}
     };
     reviewLoader();
   }, []);
-
-
- 
 
   return (
     <div className="  ">

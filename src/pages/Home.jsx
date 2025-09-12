@@ -12,30 +12,35 @@ import InstructionSection from "../components/core/HomePage/InstructionSection";
 import TabSection from "../components/core/HomePage/TabSection";
 import Footer from "../components/common/Footer";
 import ReviewSlider from "../components/common/ReviewSlider";
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet";
 import jwtDecode from "jwt-decode";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsDarkMod } from "../slices/colorSlice";
 const Home = () => {
-
-
+  const { isdarkmod } = useSelector((state) => state.darkmode);
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const isAuthenticated = !!token;
 
     if (isAuthenticated) {
       const decodedToken = jwtDecode(token);
       const currentTime = Date.now() / 1000;
-      
+
       if (decodedToken.exp < currentTime) {
         // Token has expired, perform logout here
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
         // You might also want to redirect the user to the login page
       }
     }
   }, []); // Empty dependency array ensures the effect runs only on mount
-
+  const dispatch = useDispatch();
   return (
     <div>
-      <Helmet > <title>Codemy: Code Your Journey</title></Helmet>
+      <Helmet>
+        {" "}
+        <title>Codemy: Code Your Journey</title>
+      </Helmet>
+
       {/* section1 */}
       <div className="relative mx-auto  flex max-w-maxContent flex-col w-11/12 items-center text-white justify-between gap-8">
         <Link to={"/signup"}>
@@ -61,6 +66,9 @@ const Home = () => {
           <Button active={true} linkto={"/signup"}>
             Learn More
           </Button>
+
+          
+          
           <Button active={false} linkto={"/login"}>
             Book a Demo
           </Button>
